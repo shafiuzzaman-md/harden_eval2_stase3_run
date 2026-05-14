@@ -1,0 +1,50 @@
+[
+  {
+    "file": "kbmi_net.c",
+    "line": 71,
+    "function": "kbmi_pre_routing_hook",
+    "sanitizer": "asan",
+    "bug_class": "STACK_EXEC: kernel clears the NX bit on a page-table entry via set_pte_at(), turning the dynamic-area page executable. This is a capability bug (exec-permission gain), not directly detectable by ASan/UBSan in userspace.",
+    "reproducer_hint": "Simulate by mprotect()ing a userspace page PROT_READ|PROT_WRITE|PROT_EXEC after copying shellcode-shaped bytes into it, then jump to it. ASan won't trip directly; mark a sentinel byte you can OOB-read to make the harness produce a detectable signal."
+  },
+  {
+    "file": "usb_event_logger.c",
+    "line": 118,
+    "function": "usb_event_logger_exit (or the registered usb_notify callback)",
+    "sanitizer": "asan",
+    "bug_class": "UAF via dangling function pointer: the module's exit() function does NOT call usb_unregister_notify(), so the kernel keeps the function-pointer to a no-longer-loaded handler. A subsequent USB event invokes the dangling callback.",
+    "reproducer_hint": "Mimic in userspace: register a callback (heap-allocated function-pointer table), then free the table without unregistering, then call the dangling slot. ASan will report a use-after-free read at the indirect call site."
+  },
+  {
+    "file": "vnet_pktfilter.c",
+    "line": 320,
+    "function": "vnet_pktfilter_exit (or registered packet_filter_hook)",
+    "sanitizer": "asan",
+    "bug_class": "UAF via dangling function pointer: vnet_pktfilter_exit() forgets to nf_unregister_net_hook(), leaving a dangling packet_filter_hook callback pointer. Next packet routing dereferences the freed handler.",
+    "reproducer_hint": "Same userspace simulation as usb_event_logger: heap-table of fn-ptrs, free without unregistering, call the slot. ASan UAF read."
+  },
+  {
+    "file": "rev_chardev.c",
+    "line": 193,
+    "function": "rev_chardev_read",
+    "sanitizer": "asan",
+    "bug_class": "Integer overflow leading to OOB read in copy_to_user: user-supplied *offset is not bounded against the message buffer size, so message + *offset wraps and copy_to_user reads from out-of-bounds memory.",
+    "reproducer_hint": "Stand in for copy_to_user with memcpy to a userspace dst buffer; call rev_chardev_read with *offset > message_size so message + *offset is past the end. ASan trips on the memcpy source-side OOB read at line 193."
+  },
+  {
+    "file": "evt_notifier.c",
+    "line": 162,
+    "function": "evt_notifier_read",
+    "sanitizer": "asan",
+    "bug_class": "Integer overflow leading to OOB read in copy_to_user — same shape as rev_chardev:193.",
+    "reproducer_hint": "Same userspace harness pattern; out-of-bounds *offset, then memcpy stand-in for copy_to_user trips ASan at line 162."
+  },
+  {
+    "file": "kbmp.c",
+    "line": 165,
+    "function": "rotate",
+    "sanitizer": "ubsan",
+    "bug_class": "Division-by-zero: rotate(s, i) computes index = i % length where length = strlen(s); if s is the empty string, length == 0 and the modulo traps under UBSan.",
+    "reproducer_hint": "Call rotate(\"\", any_size_t) directly from main(). UBSan -fsanitize=undefined reports an integer division-by-zero at kbmp.c:165."
+  }
+]

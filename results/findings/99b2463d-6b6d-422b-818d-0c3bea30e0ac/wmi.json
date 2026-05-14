@@ -1,0 +1,71 @@
+{
+  "operation": {
+    "name": "write_at_line48",
+    "parameters": [],
+    "parameters_meta": [],
+    "effects": [
+      {
+        "type": "write",
+        "id": "e_7df1f720",
+        "arguments": {
+          "destinations": [
+            "msg_message_length"
+          ],
+          "values": []
+        }
+      }
+    ],
+    "preconditions": [],
+    "preconditions_meta": []
+  },
+  "trigger": {
+    "function": "?",
+    "file": "kbmp.c"
+  },
+  "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-line48-99b2463d",
+  "metadata": {
+    "rule": "stase3/cpp/cwe-787-oob-buffer-index-write",
+    "bug_type": "CWE-787 (OOB_WRITE): Array index write where index is a length-like value (off-by-one / past-last-byte)",
+    "verdict_kind": "static_candidate",
+    "crash_location": {
+      "file": "kbmp.c",
+      "line": 48,
+      "function": "?",
+      "source": "msg[message_length] = '\\0';"
+    },
+    "memory_layout": [
+      {
+        "name": "msg_message_length",
+        "expr": "msg[message_length]",
+        "locations": [
+          {
+            "offset": 0,
+            "size": 8
+          }
+        ]
+      }
+    ],
+    "memory_relation": {
+      "segment": "msg_message_length",
+      "symbol": "?"
+    },
+    "concrete_oracle": {
+      "oracle": "asan-userspace",
+      "violation_type": null,
+      "exit_code": null,
+      "asan_excerpt": "",
+      "harness_source": null,
+      "harness_log": null
+    },
+    "symex_oracle": {
+      "oracle": "klee",
+      "tests": 0,
+      "ptr_errors": 0,
+      "witness_test": null,
+      "witness_validation": {
+        "validated": false,
+        "stage": "skipped"
+      }
+    }
+  }
+}

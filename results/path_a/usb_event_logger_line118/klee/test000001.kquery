@@ -1,0 +1,7 @@
+array action[8] : w32 -> w8 = symbolic
+array dev_bits[8] : w32 -> w8 = symbolic
+(query [(Ult (ReadLSB w64 0 action)
+              4294967296)
+         (Eq 0
+             (ReadLSB w64 0 dev_bits))]
+        false)

@@ -1,0 +1,13 @@
+Error: memory error: out of bound pointer
+File: runtime/Freestanding/memcpy.c
+Line: 17
+assembly.ll line: 294
+State: 1
+Stack: 
+	#000000294 in memcpy(131792820383744, 130598645530624, 1023) at runtime/Freestanding/memcpy.c:17
+	#100000191 in kbmi_pre_routing_hook(131789962084352) at out/eval2_linux/harnesses/harness_kbmi_net_line71.c:93
+	#200000055 in main() at kbmi_net.c:105
+Info: 
+	address: 131792820383744
+	next: object at 130536368504832 of size 1
+		MO31[1] allocated at main():  %4 = alloca i8, align 1

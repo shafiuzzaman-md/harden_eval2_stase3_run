@@ -1,0 +1,8 @@
+KLEE: WARNING: undefined reference to function: memchr
+KLEE: WARNING: undefined reference to function: mmap
+KLEE: WARNING: undefined reference to function: mprotect
+KLEE: WARNING: undefined reference to function: munmap
+KLEE: WARNING: undefined reference to function: sysconf
+KLEE: WARNING ONCE: calling external: memchr(131789962084352, 0, 1024) at out/eval2_linux/harnesses/harness_kbmi_net_line71.c:65 11
+KLEE: WARNING ONCE: calling external: sysconf(30) at out/eval2_linux/harnesses/harness_kbmi_net_line71.c:86 10
+KLEE: WARNING ONCE: calling external: mmap(0, 4096, 3, 34, 4294967295, 0) at out/eval2_linux/harnesses/harness_kbmi_net_line71.c:89 11

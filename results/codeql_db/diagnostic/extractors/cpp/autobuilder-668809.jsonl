@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-05-14T16:39:08Z",
+  "source": {
+    "id": "cpp/autobuilder/buildless/mode-active",
+    "name": "C/C++ was extracted with build-mode set to 'none'",
+    "extractorName": "cpp"
+  },
+  "severity": "note",
+  "markdownMessage": "C/C++ was extracted with build-mode set to 'none'. This means that all C/C++ source in the working directory will be scanned.\n\nIf you would prefer to analyse using a build command, see the manual[1].\n\n[1]: https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language",
+  "visibility": {
+    "statusPage": true,
+    "cliSummaryTable": true,
+    "telemetry": true
+  }
+}

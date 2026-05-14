@@ -1,0 +1,189 @@
+[E 16:39:08 668664] CodeQL C/C++ Extractor 2.22.1
+[E 16:39:08 668664] Current directory: /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src
+[E 16:39:08 668664] Command: /home/shafi/codeql-cli/codeql/cpp/tools/linux64/extractor --mimic /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/autobuild/bin/clang @/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/args/argsv02y6r0q
+[E 16:39:08 668664] Warning[extractor-c++]: In canonicalise_path: fs::canonical failed on /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c.o (No such file or directory)
+[E 16:39:08 668664] Checking whether C compilation already happened.
+[E 16:39:08 668664] Checking for tag c-compilation-happened
+[E 16:39:08 668664] Looks like C compilation didn't already happen.
+[E 16:39:08 668664] Checking whether C compilation has been attempted.
+[E 16:39:08 668664] Checking for tag c-compilation-attempted
+[E 16:39:08 668664] Marking C compilation as attempted.
+[E 16:39:08 668664] Setting tag c-compilation-attempted
+[E 16:39:08 668664] Processed command line: /home/shafi/codeql-cli/codeql/cpp/tools/linux64/extractor --trapfolder /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/trap/cpp --src_archive /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src --object_filename /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c.o --no_warnings_and_discretionary_errors --error_limit 10000 --disable_system_macros --variadic_macros --incognito --gcc --clang_version 140006 --gnu_version 40801 --has_feature_vector 1111111111111111000000000000000000000000000000000000000000000000000011 --clang -D_LP64=1 -D__ATOMIC_ACQUIRE=2 -D__ATOMIC_ACQ_REL=4 -D__ATOMIC_CONSUME=1 -D__ATOMIC_RELAXED=0 -D__ATOMIC_RELEASE=3 -D__ATOMIC_SEQ_CST=5 -D__BIGGEST_ALIGNMENT__=16 -D__BITINT_MAXWIDTH__=128 -D__BOOL_WIDTH__=8 -D__BYTE_ORDER__=__ORDER_LITTLE_ENDIAN__ -D__CHAR_BIT__=8 -D__CLANG_ATOMIC_BOOL_LOCK_FREE=2 -D__CLANG_ATOMIC_CHAR16_T_LOCK_FREE=2 -D__CLANG_ATOMIC_CHAR32_T_LOCK_FREE=2 -D__CLANG_ATOMIC_CHAR_LOCK_FREE=2 -D__CLANG_ATOMIC_INT_LOCK_FREE=2 -D__CLANG_ATOMIC_LLONG_LOCK_FREE=2 -D__CLANG_ATOMIC_LONG_LOCK_FREE=2 -D__CLANG_ATOMIC_POINTER_LOCK_FREE=2 -D__CLANG_ATOMIC_SHORT_LOCK_FREE=2 -D__CLANG_ATOMIC_WCHAR_T_LOCK_FREE=2 -D__CONSTANT_CFSTRINGS__=1 -D__DBL_DECIMAL_DIG__=17 -D__DBL_DENORM_MIN__=4.9406564584124654e-324 -D__DBL_DIG__=15 -D__DBL_EPSILON__=2.2204460492503131e-16 -D__DBL_HAS_DENORM__=1 -D__DBL_HAS_INFINITY__=1 -D__DBL_HAS_QUIET_NAN__=1 -D__DBL_MANT_DIG__=53 -D__DBL_MAX_10_EXP__=308 -D__DBL_MAX_EXP__=1024 '-D__DBL_MAX__=1.7976931348623157e+308' '-D__DBL_MIN_10_EXP__=(-307)' '-D__DBL_MIN_EXP__=(-1021)' -D__DBL_MIN__=2.2250738585072014e-308 -D__DECIMAL_DIG__=__LDBL_DECIMAL_DIG__ -D__ELF__=1 -D__FINITE_MATH_ONLY__=0 -D__FLOAT128__=1 -D__FLT_DECIMAL_DIG__=9 -D__FLT_DENORM_MIN__=1.40129846e-45F -D__FLT_DIG__=6 -D__FLT_EPSILON__=1.19209290e-7F -D__FLT_EVAL_METHOD__=0 -D__FLT_HAS_DENORM__=1 -D__FLT_HAS_INFINITY__=1 -D__FLT_HAS_QUIET_NAN__=1 -D__FLT_MANT_DIG__=24 -D__FLT_MAX_10_EXP__=38 -D__FLT_MAX_EXP__=128 '-D__FLT_MAX__=3.40282347e+38F' '-D__FLT_MIN_10_EXP__=(-37)' '-D__FLT_MIN_EXP__=(-125)' -D__FLT_MIN__=1.17549435e-38F -D__FLT_RADIX__=2 -D__FXSR__=1 -D__GCC_ASM_FLAG_OUTPUTS__=1 -D__GCC_ATOMIC_BOOL_LOCK_FREE=2 -D__GCC_ATOMIC_CHAR16_T_LOCK_FREE=2 -D__GCC_ATOMIC_CHAR32_T_LOCK_FREE=2 -D__GCC_ATOMIC_CHAR_LOCK_FREE=2 -D__GCC_ATOMIC_INT_LOCK_FREE=2 -D__GCC_ATOMIC_LLONG_LOCK_FREE=2 -D__GCC_ATOMIC_LONG_LOCK_FREE=2 -D__GCC_ATOMIC_POINTER_LOCK_FREE=2 -D__GCC_ATOMIC_SHORT_LOCK_FREE=2 -D__GCC_ATOMIC_TEST_AND_SET_TRUEVAL=1 -D__GCC_ATOMIC_WCHAR_T_LOCK_FREE=2 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -D__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1=1 -D__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2=1 -D__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4=1 -D__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8=1 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -D__GNUC__=4 -D__GXX_ABI_VERSION=1002 -D__INT16_C_SUFFIX__= '-D__INT16_FMTd__="hd"' '-D__INT16_FMTi__="hi"' -D__INT16_MAX__=32767 -D__INT16_TYPE__=short -D__INT32_C_SUFFIX__= '-D__INT32_FMTd__="d"' '-D__INT32_FMTi__="i"' -D__INT32_MAX__=2147483647 -D__INT32_TYPE__=int -D__INT64_C_SUFFIX__=L '-D__INT64_FMTd__="ld"' '-D__INT64_FMTi__="li"' -D__INT64_MAX__=9223372036854775807L '-D__INT64_TYPE__=long int' -D__INT8_C_SUFFIX__= '-D__INT8_FMTd__="hhd"' '-D__INT8_FMTi__="hhi"' -D__INT8_MAX__=127 '-D__INT8_TYPE__=signed char' -D__INTMAX_C_SUFFIX__=L '-D__INTMAX_FMTd__="ld"' '-D__INTMAX_FMTi__="li"' -D__INTMAX_MAX__=9223372036854775807L '-D__INTMAX_TYPE__=long int' -D__INTMAX_WIDTH__=64 '-D__INTPTR_FMTd__="ld"' '-D__INTPTR_FMTi__="li"' -D__INTPTR_MAX__=9223372036854775807L '-D__INTPTR_TYPE__=long int' -D__INTPTR_WIDTH__=64 '-D__INT_FAST16_FMTd__="hd"' '-D__INT_FAST16_FMTi__="hi"' -D__INT_FAST16_MAX__=32767 -D__INT_FAST16_TYPE__=short -D__INT_FAST16_WIDTH__=16 '-D__INT_FAST32_FMTd__="d"' '-D__INT_FAST32_FMTi__="i"' -D__INT_FAST32_MAX__=2147483647 -D__INT_FAST32_TYPE__=int -D__INT_FAST32_WIDTH__=32 '-D__INT_FAST64_FMTd__="ld"' '-D__INT_FAST64_FMTi__="li"' -D__INT_FAST64_MAX__=9223372036854775807L '-D__INT_FAST64_TYPE__=long int' -D__INT_FAST64_WIDTH__=64 '-D__INT_FAST8_FMTd__="hhd"' '-D__INT_FAST8_FMTi__="hhi"' -D__INT_FAST8_MAX__=127 '-D__INT_FAST8_TYPE__=signed char' -D__INT_FAST8_WIDTH__=8 '-D__INT_LEAST16_FMTd__="hd"' '-D__INT_LEAST16_FMTi__="hi"' -D__INT_LEAST16_MAX__=32767 -D__INT_LEAST16_TYPE__=short -D__INT_LEAST16_WIDTH__=16 '-D__INT_LEAST32_FMTd__="d"' '-D__INT_LEAST32_FMTi__="i"' -D__INT_LEAST32_MAX__=2147483647 -D__INT_LEAST32_TYPE__=int -D__INT_LEAST32_WIDTH__=32 '-D__INT_LEAST64_FMTd__="ld"' '-D__INT_LEAST64_FMTi__="li"' -D__INT_LEAST64_MAX__=9223372036854775807L '-D__INT_LEAST64_TYPE__=long int' -D__INT_LEAST64_WIDTH__=64 '-D__INT_LEAST8_FMTd__="hhd"' '-D__INT_LEAST8_FMTi__="hhi"' -D__INT_LEAST8_MAX__=127 '-D__INT_LEAST8_TYPE__=signed char' -D__INT_LEAST8_WIDTH__=8 -D__INT_MAX__=2147483647 -D__INT_WIDTH__=32 -D__LDBL_DECIMAL_DIG__=21 -D__LDBL_DENORM_MIN__=3.64519953188247460253e-4951L -D__LDBL_DIG__=18 -D__LDBL_EPSILON__=1.08420217248550443401e-19L -D__LDBL_HAS_DENORM__=1 -D__LDBL_HAS_INFINITY__=1 -D__LDBL_HAS_QUIET_NAN__=1 -D__LDBL_MANT_DIG__=64 -D__LDBL_MAX_10_EXP__=4932 -D__LDBL_MAX_EXP__=16384 '-D__LDBL_MAX__=1.18973149535723176502e+4932L' '-D__LDBL_MIN_10_EXP__=(-4931)' '-D__LDBL_MIN_EXP__=(-16381)' -D__LDBL_MIN__=3.36210314311209350626e-4932L -D__LITTLE_ENDIAN__=1 -D__LLONG_WIDTH__=64 -D__LONG_LONG_MAX__=9223372036854775807LL -D__LONG_MAX__=9223372036854775807L -D__LONG_WIDTH__=64 -D__LP64__=1 -D__MMX__=1 -D__NO_INLINE__=1 -D__NO_MATH_INLINES=1 -D__OBJC_BOOL_IS_BOOL=0 -D__OPENCL_MEMORY_SCOPE_ALL_SVM_DEVICES=3 -D__OPENCL_MEMORY_SCOPE_DEVICE=2 -D__OPENCL_MEMORY_SCOPE_SUB_GROUP=4 -D__OPENCL_MEMORY_SCOPE_WORK_GROUP=1 -D__OPENCL_MEMORY_SCOPE_WORK_ITEM=0 -D__ORDER_BIG_ENDIAN__=4321 -D__ORDER_LITTLE_ENDIAN__=1234 -D__ORDER_PDP_ENDIAN__=3412 -D__PIC__=2 -D__PIE__=2 -D__POINTER_WIDTH__=64 -D__PRAGMA_REDEFINE_EXTNAME=1 '-D__PTRDIFF_FMTd__="ld"' '-D__PTRDIFF_FMTi__="li"' -D__PTRDIFF_MAX__=9223372036854775807L '-D__PTRDIFF_TYPE__=long int' -D__PTRDIFF_WIDTH__=64 -D__REGISTER_PREFIX__= -D__SCHAR_MAX__=127 -D__SEG_FS=1 -D__SEG_GS=1 -D__SHRT_MAX__=32767 -D__SHRT_WIDTH__=16 -D__SIG_ATOMIC_MAX__=2147483647 -D__SIG_ATOMIC_WIDTH__=32 -D__SIZEOF_DOUBLE__=8 -D__SIZEOF_FLOAT128__=16 -D__SIZEOF_FLOAT__=4 -D__SIZEOF_INT128__=16 -D__SIZEOF_INT__=4 -D__SIZEOF_LONG_DOUBLE__=16 -D__SIZEOF_LONG_LONG__=8 -D__SIZEOF_LONG__=8 -D__SIZEOF_POINTER__=8 -D__SIZEOF_PTRDIFF_T__=8 -D__SIZEOF_SHORT__=2 -D__SIZEOF_SIZE_T__=8 -D__SIZEOF_WCHAR_T__=4 -D__SIZEOF_WINT_T__=4 '-D__SIZE_FMTX__="lX"' '-D__SIZE_FMTo__="lo"' '-D__SIZE_FMTu__="lu"' '-D__SIZE_FMTx__="lx"' -D__SIZE_MAX__=18446744073709551615UL '-D__SIZE_TYPE__=long unsigned int' -D__SIZE_WIDTH__=64 -D__SSE2_MATH__=1 -D__SSE2__=1 -D__SSE_MATH__=1 -D__SSE__=1 -D__STDC_UTF_16__=1 -D__STDC_UTF_32__=1 -D__UINT16_C_SUFFIX__= '-D__UINT16_FMTX__="hX"' '-D__UINT16_FMTo__="ho"' '-D__UINT16_FMTu__="hu"' '-D__UINT16_FMTx__="hx"' -D__UINT16_MAX__=65535 '-D__UINT16_TYPE__=unsigned short' -D__UINT32_C_SUFFIX__=U '-D__UINT32_FMTX__="X"' '-D__UINT32_FMTo__="o"' '-D__UINT32_FMTu__="u"' '-D__UINT32_FMTx__="x"' -D__UINT32_MAX__=4294967295U '-D__UINT32_TYPE__=unsigned int' -D__UINT64_C_SUFFIX__=UL '-D__UINT64_FMTX__="lX"' '-D__UINT64_FMTo__="lo"' '-D__UINT64_FMTu__="lu"' '-D__UINT64_FMTx__="lx"' -D__UINT64_MAX__=18446744073709551615UL '-D__UINT64_TYPE__=long unsigned int' -D__UINT8_C_SUFFIX__= '-D__UINT8_FMTX__="hhX"' '-D__UINT8_FMTo__="hho"' '-D__UINT8_FMTu__="hhu"' '-D__UINT8_FMTx__="hhx"' -D__UINT8_MAX__=255 '-D__UINT8_TYPE__=unsigned char' -D__UINTMAX_C_SUFFIX__=UL '-D__UINTMAX_FMTX__="lX"' '-D__UINTMAX_FMTo__="lo"' '-D__UINTMAX_FMTu__="lu"' '-D__UINTMAX_FMTx__="lx"' -D__UINTMAX_MAX__=18446744073709551615UL '-D__UINTMAX_TYPE__=long unsigned int' -D__UINTMAX_WIDTH__=64 '-D__UINTPTR_FMTX__="lX"' '-D__UINTPTR_FMTo__="lo"' '-D__UINTPTR_FMTu__="lu"' '-D__UINTPTR_FMTx__="lx"' -D__UINTPTR_MAX__=18446744073709551615UL '-D__UINTPTR_TYPE__=long unsigned int' -D__UINTPTR_WIDTH__=64 '-D__UINT_FAST16_FMTX__="hX"' '-D__UINT_FAST16_FMTo__="ho"' '-D__UINT_FAST16_FMTu__="hu"' '-D__UINT_FAST16_FMTx__="hx"' -D__UINT_FAST16_MAX__=65535 '-D__UINT_FAST16_TYPE__=unsigned short' '-D__UINT_FAST32_FMTX__="X"' '-D__UINT_FAST32_FMTo__="o"' '-D__UINT_FAST32_FMTu__="u"' '-D__UINT_FAST32_FMTx__="x"' -D__UINT_FAST32_MAX__=4294967295U '-D__UINT_FAST32_TYPE__=unsigned int' '-D__UINT_FAST64_FMTX__="lX"' '-D__UINT_FAST64_FMTo__="lo"' '-D__UINT_FAST64_FMTu__="lu"' '-D__UINT_FAST64_FMTx__="lx"' -D__UINT_FAST64_MAX__=18446744073709551615UL '-D__UINT_FAST64_TYPE__=long unsigned int' '-D__UINT_FAST8_FMTX__="hhX"' '-D__UINT_FAST8_FMTo__="hho"' '-D__UINT_FAST8_FMTu__="hhu"' '-D__UINT_FAST8_FMTx__="hhx"' -D__UINT_FAST8_MAX__=255 '-D__UINT_FAST8_TYPE__=unsigned char' '-D__UINT_LEAST16_FMTX__="hX"' '-D__UINT_LEAST16_FMTo__="ho"' '-D__UINT_LEAST16_FMTu__="hu"' '-D__UINT_LEAST16_FMTx__="hx"' -D__UINT_LEAST16_MAX__=65535 '-D__UINT_LEAST16_TYPE__=unsigned short' '-D__UINT_LEAST32_FMTX__="X"' '-D__UINT_LEAST32_FMTo__="o"' '-D__UINT_LEAST32_FMTu__="u"' '-D__UINT_LEAST32_FMTx__="x"' -D__UINT_LEAST32_MAX__=4294967295U '-D__UINT_LEAST32_TYPE__=unsigned int' '-D__UINT_LEAST64_FMTX__="lX"' '-D__UINT_LEAST64_FMTo__="lo"' '-D__UINT_LEAST64_FMTu__="lu"' '-D__UINT_LEAST64_FMTx__="lx"' -D__UINT_LEAST64_MAX__=18446744073709551615UL '-D__UINT_LEAST64_TYPE__=long unsigned int' '-D__UINT_LEAST8_FMTX__="hhX"' '-D__UINT_LEAST8_FMTo__="hho"' '-D__UINT_LEAST8_FMTu__="hhu"' '-D__UINT_LEAST8_FMTx__="hhx"' -D__UINT_LEAST8_MAX__=255 '-D__UINT_LEAST8_TYPE__=unsigned char' -D__USER_LABEL_PREFIX__= '-D__VERSION__="Ubuntu Clang 14.0.6"' -D__WCHAR_MAX__=2147483647 -D__WCHAR_TYPE__=int -D__WCHAR_WIDTH__=32 -D__WINT_MAX__=4294967295U '-D__WINT_TYPE__=unsigned int' -D__WINT_UNSIGNED__=1 -D__WINT_WIDTH__=32 -D__amd64=1 -D__amd64__=1 -D__clang__=1 '-D__clang_literal_encoding__="UTF-8"' -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=6 '-D__clang_version__="14.0.6 "' '-D__clang_wide_literal_encoding__="UTF-32"' -D__code_model_small__=1 -D__gnu_linux__=1 -D__k8=1 -D__k8__=1 -D__linux=1 -D__linux__=1 -D__llvm__=1 -D__pic__=2 -D__pie__=2 '-D__seg_fs=__attribute__((address_space(257)))' '-D__seg_gs=__attribute__((address_space(256)))' -D__tune_k8__=1 -D__unix=1 -D__unix__=1 -D__x86_64=1 -D__x86_64__=1 -Dlinux=1 -Dunix=1 '-D__private_extern__=extern __attribute__((visibility("hidden")))' -I/usr/lib/llvm-14/lib/clang/14.0.6/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include -- /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c
+[E 16:39:08 668664] CODEQL_EXTRACTOR_CPP_TRAP_CACHING is not set
+[E 16:39:08 668664] CODEQL_EXTRACTOR_CPP_OPTION_TRAP_CACHE_WRITE is not set
+[E 16:39:08 668664] CODEQL_EXTRACTOR_CPP_OPTION_TRAP_CACHE_DIR is not set
+[E 16:39:08 668664] Initialising TRAP cache at path: 0d/c9a1/a1be370470ded651c582e340b2f4
+[E 16:39:08 668664] Not using TRAP cache
+[E 16:39:08 668664] TRAP cache miss
+[E 16:39:08 668664] Starting compilation TRAP /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/trap/cpp/compilations/54/22740300_0.trap.zst
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/linux/module.h
+[E 16:39:08 668664] Already archived /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/linux/kernel.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/linux/sysinfo.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/linux/types.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/x86_64-linux-gnu/asm/types.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/asm-generic/types.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/asm-generic/int-ll64.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/x86_64-linux-gnu/asm/bitsperlong.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/asm-generic/bitsperlong.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/linux/posix_types.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/linux/stddef.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/x86_64-linux-gnu/asm/posix_types.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/x86_64-linux-gnu/asm/posix_types_64.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/asm-generic/posix_types.h
+[E 16:39:08 668664] Archiving /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/src/usr/include/linux/const.h
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 16: error: cannot open source file "linux/init.h"
+  #include <linux/init.h>
+                         ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 17: error: cannot open source file "linux/usb.h"
+  #include <linux/usb.h>
+                        ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 18: error: cannot open source file "linux/notifier.h"
+  #include <linux/notifier.h>
+                             ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 19: error: cannot open source file "linux/device.h"
+  #include <linux/device.h>
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 21: error: expected a type specifier
+  MODULE_LICENSE("GPL");
+                 ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 22: error: expected a type specifier
+  MODULE_AUTHOR("Stanley Hudson");
+                ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 23: error: expected a type specifier
+  MODULE_DESCRIPTION("USB Device Event Logger");
+                     ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 46: error: identifier "USB_DEVICE_ADD" is undefined
+      case USB_DEVICE_ADD:
+           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 47: error: identifier "KERN_INFO" is undefined
+          printk(KERN_INFO "USB device added:\n");
+                 ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 47: error: expected a ")"
+          printk(KERN_INFO "USB device added:\n");
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 49: error: identifier "USB_DEVICE_REMOVE" is undefined
+      case USB_DEVICE_REMOVE:
+           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 50: error: expected a ")"
+          printk(KERN_INFO "USB device removed:\n");
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 53: error: expected a ")"
+          printk(KERN_INFO "USB event: action=%lu\n", action);
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 59: error: identifier "KERN_INFO" is undefined
+          printk(KERN_INFO "Bus: %03d, Device: %03d\n", udev->bus->busnum, udev->devnum);
+                 ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 59: error: expected a ")"
+          printk(KERN_INFO "Bus: %03d, Device: %03d\n", udev->bus->busnum, udev->devnum);
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 60: error: expected a ")"
+          printk(KERN_INFO "Vendor ID: %04x, Product ID: %04x\n",
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 62: error: expected a ")"
+          printk(KERN_INFO "Manufacturer: %s, Product: %s, SerialNumber: %s\n",
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 66: error: expected a ")"
+          printk(KERN_INFO "Device Path: %s\n", udev->devpath);
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 67: error: expected a ")"
+          printk(KERN_INFO "Device Class: %u, Subclass: %u, Protocol: %u\n",
+                           ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 73: error: pointer or reference to incomplete type "struct usb_device" is not allowed
+          if (udev->actconfig) {
+              ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 74: error: pointer or reference to incomplete type "struct usb_device" is not allowed
+              for (i = 0; i < udev->actconfig->desc.bNumInterfaces; i++) {
+                              ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 75: error: pointer or reference to incomplete type "struct usb_device" is not allowed
+                  struct usb_interface *interface = udev->actconfig->interface[i];
+                                                    ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 76: error: pointer or reference to incomplete type "struct usb_interface" is not allowed
+                  if (interface && interface->cur_altsetting) {
+                                   ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 77: error: pointer or reference to incomplete type "struct usb_interface" is not allowed
+                      iface_desc = interface->cur_altsetting;
+                                   ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 78: error: expected a ")"
+                      printk(KERN_INFO "Interface Number: %d\n", iface_desc->desc.bInterfaceNumber);
+                                       ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 79: error: expected a ")"
+                      printk(KERN_INFO "Interface Class: %u, SubClass: %u, Protocol: %u\n",
+                                       ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 88: error: identifier "NOTIFY_OK" is undefined
+      return NOTIFY_OK;
+             ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 92: error: incomplete type "struct notifier_block" is not allowed
+  static struct notifier_block usb_nb = {
+                               ^
+
+
+[E 16:39:08 668664] Warning[extractor-c++]: In construct_text_message: "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c", line 104: error: expected a ";"
+  static int __init usb_logger_init(void)
+                    ^
+
+
+[E 16:39:08 668664] Creating trap tarball /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/trap/cpp/tarballs/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c.8ba90240_0.trap.tar.zst
+[E 16:39:08 668664] Emitting trap files for /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c
+[E 16:39:08 668664] Opening existencedb in /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/existencedb/db
+[E 16:39:08 668664] Warning[extractor-c++]: In canonicalise_path: fs::canonical failed on /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c.o (No such file or directory)
+[E 16:39:08 668664] Wrote 3 files to /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/trap/cpp/tarballs/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c.8ba90240_0.trap.tar.zst
+[E 16:39:08 668664] Finished compilation TRAP /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/trap/cpp/compilations/54/22740300_0.trap.zst
+[E 16:39:08 668664] Marking C compilation as happened.
+[E 16:39:08 668664] Setting tag c-compilation-happened
+[E 16:39:08 668664] Warning[extractor-c++]: In main: Extractor exiting with code 1

@@ -1,0 +1,110 @@
+{
+  "operation": {
+    "name": "write_at_route_one_packet",
+    "parameters": [
+      "int32 do_exit",
+      "int32 do_route"
+    ],
+    "parameters_meta": [
+      {
+        "role": "unknown"
+      },
+      {
+        "role": "unknown"
+      }
+    ],
+    "effects": [
+      {
+        "type": "write",
+        "id": "e_fdfc9a72",
+        "arguments": {
+          "destinations": [
+            "write_destination"
+          ],
+          "values": []
+        }
+      }
+    ],
+    "preconditions": [
+      "(set-logic QF_AUFBV )\n(declare-fun do_exit () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun do_route () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (and \n             (= \n                (_ bv1 32)\n                (concat \n                        (select \n                                do_exit\n                                (_ bv3 32)\n                        )\n                        (concat \n                                (select \n                                        do_exit\n                                        (_ bv2 32)\n                                )\n                                (concat \n                                        (select \n                                                do_exit\n                                                (_ bv1 32)\n                                        )\n                                        (select \n                                                do_exit\n                                                (_ bv0 32)\n                                        )\n                                )\n                        )\n                )\n             )\n             (= \n                (_ bv1 32)\n                (concat \n                        (select \n                                do_route\n                                (_ bv3 32)\n                        )\n                        (concat \n                                (select \n                                        do_route\n                                        (_ bv2 32)\n                                )\n                                (concat \n                                        (select \n                                                do_route\n                                                (_ bv1 32)\n                                        )\n                                        (select \n                                                do_route\n                                                (_ bv0 32)\n                                        )\n                                )\n                        )\n                )\n             )\n        )\n)\n(check-sat)\n(exit)\n"
+    ],
+    "preconditions_meta": [
+      {
+        "name": "test000001",
+        "is_bug_witness": true,
+        "format": "smt2",
+        "size_chars": 2132
+      }
+    ]
+  },
+  "trigger": {
+    "function": "route_one_packet",
+    "file": "vnet_pktfilter.c",
+    "args": [
+      {
+        "name": "do_exit",
+        "type": "int32",
+        "value_le_hex": "0x1",
+        "size_bytes": 4,
+        "source": "klee_witness:test000001"
+      },
+      {
+        "name": "do_route",
+        "type": "int32",
+        "value_le_hex": "0x1",
+        "size_bytes": 4,
+        "source": "klee_witness:test000001"
+      }
+    ]
+  },
+  "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-route_one_packet-e494e29d",
+  "metadata": {
+    "rule": "stase3/cpp/cwe-787-oob-buffer-index-write",
+    "bug_type": "CWE-787 (OOB_WRITE): Array index write where index is a length-like value (off-by-one / past-last-byte)",
+    "verdict_kind": "concrete_confirmed",
+    "crash_location": {
+      "file": "vnet_pktfilter.c",
+      "line": 320,
+      "function": "route_one_packet",
+      "source": "static void __exit packet_filter_exit(void)"
+    },
+    "memory_layout": [
+      {
+        "name": "write_destination",
+        "expr": "?",
+        "locations": [
+          {
+            "offset": 0,
+            "size": 8
+          }
+        ]
+      }
+    ],
+    "memory_relation": {
+      "segment": "write_destination",
+      "symbol": "route_one_packet"
+    },
+    "concrete_oracle": {
+      "oracle": "asan-userspace",
+      "violation_type": "heap-use-after-free",
+      "exit_code": 1,
+      "asan_excerpt": "==716890==ERROR: AddressSanitizer: heap-use-after-free on address 0x503000000040 at pc 0x613fd6bc778a bp 0x7fffd5814290 sp 0x7fffd5814280\nREAD of size 8 at 0x503000000040 thread T0\n    #0 0x613fd6bc7789 in route_one_packet /home/shafi/harden/eval3_demo/stase3/vnet_pktfilter.c:320\n    #1 0x613fd6bc77f2 in main /home/shafi/harden/eval3_demo/stase3/harness.c:178\n    #2 0x7cc3fda2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #3 0x7cc3fda2a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #4 0x613fd6bc7204 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/vnet_pktfilter_line320/harness+0x2204) (BuildId: 51afce83948637929f2b27773e73b9ec0bf4702f)\n\n0x503000000040 is located 0 bytes inside of 24-byte region [0x503000000040,0x503000000058)\nfreed by thread T0 here:\n    #0 0x7cc3fe6fc4d8 in free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52\n    #1 0x613fd6bc76de in packet_filter_exit /home/shafi/harden/eval3_demo/stase3/vnet_pktfilter.c:320\n    #2 0x613fd6bc77e7 in main /home/shafi/harden/eval3_demo/stase3/harness.c:175\n    #3 0x7cc3fda2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #4 0x7cc3fda2a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #5 0x613fd6bc7204 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/vnet_pktfilter_line320/harness+0x2204) (BuildId: 51afce83948637929f2b27773e73b9ec0bf4702f)\n\npreviously allocated by thread T0 here:\n    #0 0x7cc3fe6fd9c7 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69\n    #1 0x613fd6bc74b1 in packet_filter_init /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/harnesses/harness_vnet_pktfilter_line320.c:115\n    #2 0x613fd6bc77d1 in main /home/shafi/harden/eval3_demo/stase3/harness.c:171\n    #3 0x7cc3fda2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #4 0x7cc3fda2a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #5 0x613fd6bc7204 in _start (/home",
+      "harness_source": "reproducer.c",
+      "harness_log": "reproducer.log"
+    },
+    "symex_oracle": {
+      "oracle": "klee",
+      "tests": 1,
+      "ptr_errors": 1,
+      "witness_test": "test000001",
+      "witness_validation": {
+        "validated": true,
+        "stage": "run",
+        "exit_code": 1,
+        "asan_violation_at": "vnet_pktfilter.c:320",
+        "expected_at": "vnet_pktfilter.c:320",
+        "match_frame": "any"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+array filler_byte[1] : w32 -> w8 = symbolic
+array sep_pos[8] : w32 -> w8 = symbolic
+array shellcode_byte[1] : w32 -> w8 = symbolic
+(query [(Ult (ReadLSB w64 0 sep_pos)
+              1023)
+         (Eq 144 (Read w8 0 shellcode_byte))
+         (Eq false
+             (Eq 0 (Read w8 0 filler_byte)))]
+        false)

@@ -1,0 +1,51 @@
+=================================================================
+==716785==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x50b000000540 at pc 0x7cdbcdafb42e bp 0x7ffddebb49d0 sp 0x7ffddebb4178
+READ of size 64 at 0x50b000000540 thread T0
+    #0 0x7cdbcdafb42d in memcpy ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors_memintrinsics.inc:115
+    #1 0x56a5821534f2 in dr_w_dev_read /home/shafi/harden/eval3_demo/stase3/evt_notifier.c:162
+    #2 0x56a58215372a in main /home/shafi/harden/eval3_demo/stase3/evt_notifier.c:205
+    #3 0x7cdbcce2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #4 0x7cdbcce2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #5 0x56a5821532a4 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/evt_notifier_line162/harness+0x22a4) (BuildId: d67e0d17f3e04ef08d49a848b062bbeb2c45a951)
+
+0x50b000000540 is located 1180 bytes after 100-byte region [0x50b000000040,0x50b0000000a4)
+allocated by thread T0 here:
+    #0 0x7cdbcdafd9c7 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69
+    #1 0x56a582153676 in main /home/shafi/harden/eval3_demo/stase3/evt_notifier.c:181
+    #2 0x7cdbcce2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #3 0x7cdbcce2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #4 0x56a5821532a4 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/evt_notifier_line162/harness+0x22a4) (BuildId: d67e0d17f3e04ef08d49a848b062bbeb2c45a951)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors_memintrinsics.inc:115 in memcpy
+Shadow bytes around the buggy address:
+  0x50b000000280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x50b000000300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x50b000000380: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x50b000000400: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x50b000000480: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x50b000000500: fa fa fa fa fa fa fa fa[fa]fa fa fa fa fa fa fa
+  0x50b000000580: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x50b000000600: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x50b000000680: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x50b000000700: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x50b000000780: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==716785==ABORTING

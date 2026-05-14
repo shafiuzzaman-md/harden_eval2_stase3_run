@@ -1,0 +1,9 @@
+Error: divide by zero
+File: kbmp.c
+Line: 165
+assembly.ll line: 45
+State: 1
+Stack: 
+	#000000228 in klee_div_zero_check(0) at runtime/Intrinsic/klee_div_zero_check.c:14
+	#100000045 in rotate(129542251347968, symbolic) at kbmp.c:165
+	#200000111 in main() at kbmp.c:186

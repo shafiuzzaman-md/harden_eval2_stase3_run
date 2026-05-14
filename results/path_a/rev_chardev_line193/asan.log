@@ -1,0 +1,14 @@
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==716848==ERROR: AddressSanitizer: SEGV on unknown address 0x60aac686b7c0 (pc 0x7da16af88ae2 bp 0x7fffcbc55030 sp 0x7fffcbc54ff8 T0)
+==716848==The signal is caused by a READ memory access.
+    #0 0x7da16af88ae2 in __memmove_avx_unaligned_erms ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:342
+    #1 0x60aac686449c in dev_read /home/shafi/harden/eval3_demo/stase3/rev_chardev.c:193
+    #2 0x60aac686468a in main /home/shafi/harden/eval3_demo/stase3/rev_chardev.c:229
+    #3 0x7da16ae2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #4 0x7da16ae2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #5 0x60aac6864244 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/rev_chardev_line193/harness+0x2244) (BuildId: 7714c489518dd70cbc9e0138a221a0caa0196377)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:342 in __memmove_avx_unaligned_erms
+==716848==ABORTING

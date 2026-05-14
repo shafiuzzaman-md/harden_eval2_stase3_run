@@ -1,0 +1,38 @@
+[
+    {
+        "directory": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src",
+        "command": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/autobuild/bin/clang -c -fsyntax-only -o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/evt_notifier/evt_notifier.c.o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/evt_notifier/evt_notifier.c ",
+        "output": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/evt_notifier/evt_notifier.c.o",
+        "file": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/evt_notifier/evt_notifier.c"
+    },
+    {
+        "directory": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src",
+        "command": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/autobuild/bin/clang -c -fsyntax-only -o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmi_net/kbmi_net.c.o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmi_net/kbmi_net.c ",
+        "output": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmi_net/kbmi_net.c.o",
+        "file": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmi_net/kbmi_net.c"
+    },
+    {
+        "directory": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src",
+        "command": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/autobuild/bin/clang -c -fsyntax-only -o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmp/kbmp.c.o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmp/kbmp.c ",
+        "output": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmp/kbmp.c.o",
+        "file": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmp/kbmp.c"
+    },
+    {
+        "directory": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src",
+        "command": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/autobuild/bin/clang -c -fsyntax-only -o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/rev_chardev/rev_chardev.c.o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/rev_chardev/rev_chardev.c ",
+        "output": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/rev_chardev/rev_chardev.c.o",
+        "file": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/rev_chardev/rev_chardev.c"
+    },
+    {
+        "directory": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src",
+        "command": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/autobuild/bin/clang -c -fsyntax-only -o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c.o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c ",
+        "output": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c.o",
+        "file": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/usb_event_logger/usb_event_logger.c"
+    },
+    {
+        "directory": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src",
+        "command": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/working/autobuild/bin/clang -c -fsyntax-only -o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/vnet_pktfilter/vnet_pktfilter.c.o /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/vnet_pktfilter/vnet_pktfilter.c ",
+        "output": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/vnet_pktfilter/vnet_pktfilter.c.o",
+        "file": "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/vnet_pktfilter/vnet_pktfilter.c"
+    }
+]

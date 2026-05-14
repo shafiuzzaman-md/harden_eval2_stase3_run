@@ -1,0 +1,16 @@
+Error: memory error: out of bound pointer
+File: runtime/Freestanding/memcpy.c
+Line: 17
+assembly.ll line: 218
+State: 1
+Stack: 
+	#000000218 in memcpy(125874506563584, symbolic, symbolic) at runtime/Freestanding/memcpy.c:17
+	#100000153 in dr_w_dev_read(0, 125874506563584, symbolic, 125837999341568) at evt_notifier.c:162
+	#200000069 in main() at evt_notifier.c:205
+Info: 
+	address: (Add w64 126402787540992
+          (ReadLSB w64 0 off))
+	example: 126402787541093
+	range: [126402787541093, 126402787606527]
+	next: object at 125828335665152 of size 4
+		MO662[4] allocated at dr_w_dev_read():  %11 = alloca i32, align 4

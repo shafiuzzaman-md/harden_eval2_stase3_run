@@ -1,0 +1,9 @@
+array len[8] : w32 -> w8 = symbolic
+array offset[8] : w32 -> w8 = symbolic
+(query [(Ult 0
+              N0:(ReadLSB w64 0 len))
+         (Ule N0 64)
+         (Slt 1024
+              N1:(ReadLSB w64 0 offset))
+         (Slt N1 1048576)]
+        false)

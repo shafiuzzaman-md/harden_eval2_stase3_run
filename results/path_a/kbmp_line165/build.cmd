@@ -1,0 +1,1 @@
+gcc -g -O0 -w -I /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/include -I /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src -fsanitize=address,undefined -fno-sanitize-recover=undefined -fno-omit-frame-pointer /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/harnesses/harness_kbmp_line165.c -o out/eval2_linux/path_a/kbmp_line165/harness

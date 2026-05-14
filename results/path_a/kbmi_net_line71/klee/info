@@ -1,0 +1,23 @@
+/home/shafi/tools/klee/build/bin/klee --output-dir=out/eval2_linux/path_a/kbmi_net_line71/klee --max-time=30s --only-output-states-covering-new --write-smt2s --smtlib-human-readable out/eval2_linux/path_a/kbmi_net_line71/harness.bc
+PID: 716812
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2026-05-14 10:36:03
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2026-05-14 10:36:03
+Elapsed: 00:00:00
+KLEE: done: explored paths = 1
+KLEE: done: avg. constructs per query = 18
+KLEE: done: total queries = 5
+KLEE: done: valid queries = 2
+KLEE: done: invalid queries = 3
+KLEE: done: query cex = 5
+
+KLEE: done: total instructions = 39124
+KLEE: done: completed paths = 0
+KLEE: done: partially completed paths = 1
+KLEE: done: generated tests = 1

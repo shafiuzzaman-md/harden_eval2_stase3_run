@@ -1,0 +1,12 @@
+Error: memory error: use after free
+File: usb_event_logger.c
+Line: 118
+assembly.ll line: 177
+State: 1
+Stack: 
+	#000000177 in deliver_usb_event(symbolic, symbolic) at usb_event_logger.c:118
+	#100000066 in main() at usb_event_logger.c:161
+Info: 
+	address: 123570340495360
+	next: object at 123134401314816 of size 4
+		MO49[4] allocated at deliver_usb_event():  %3 = alloca i32, align 4

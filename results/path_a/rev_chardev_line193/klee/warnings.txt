@@ -1,0 +1,2 @@
+KLEE: WARNING: undefined reference to function: strcpy
+KLEE: WARNING ONCE: calling external: strcpy(131590799753216, 131575163387904) at rev_chardev.c:212 18

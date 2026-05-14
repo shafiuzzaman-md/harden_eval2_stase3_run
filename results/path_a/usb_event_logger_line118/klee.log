@@ -1,0 +1,15 @@
+KLEE: output directory is "/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/usb_event_logger_line118/klee"
+KLEE: Using Z3 solver backend
+KLEE: Deterministic allocator: Using quarantine queue size 8
+KLEE: Deterministic allocator: globals (start-address=0x711d76400000 size=10 GiB)
+KLEE: Deterministic allocator: constants (start-address=0x711af6400000 size=10 GiB)
+KLEE: Deterministic allocator: heap (start-address=0x701af6400000 size=1024 GiB)
+KLEE: Deterministic allocator: stack (start-address=0x6ffaf6400000 size=128 GiB)
+KLEE: WARNING ONCE: Alignment of memory from call "malloc" is not modelled. Using alignment of 8.
+KLEE: ERROR: usb_event_logger.c:118: memory error: use after free
+KLEE: NOTE: now ignoring this error at this location
+
+KLEE: done: total instructions = 71
+KLEE: done: completed paths = 0
+KLEE: done: partially completed paths = 1
+KLEE: done: generated tests = 1

@@ -1,0 +1,114 @@
+{
+  "operation": {
+    "name": "write_at_dr_w_dev_read",
+    "parameters": [
+      "int64 len",
+      "int64 off"
+    ],
+    "parameters_meta": [
+      {
+        "role": "function_argument",
+        "source_function": "dr_w_dev_read",
+        "source_param_index": 2,
+        "source_param_name": "len",
+        "source_param_type": "size_t"
+      },
+      {
+        "role": "unknown"
+      }
+    ],
+    "effects": [
+      {
+        "type": "write",
+        "id": "e_9e48d469",
+        "arguments": {
+          "destinations": [
+            "ret"
+          ],
+          "values": []
+        }
+      }
+    ],
+    "preconditions": [
+      "(set-logic QF_AUFBV )\n(declare-fun len () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun off () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (let\n            (\n             (?B1\n                 (concat \n                         (select \n                                 len\n                                 (_ bv7 32)\n                         )\n                         (concat \n                                 (select \n                                         len\n                                         (_ bv6 32)\n                                 )\n                                 (concat \n                                         (select \n                                                 len\n                                                 (_ bv5 32)\n                                         )\n                                         (concat \n                                                 (select \n                                                         len\n                                                         (_ bv4 32)\n                                                 )\n                                                 (concat \n                                                         (select \n                                                                 len\n                                                                 (_ bv3 32)\n                                                         )\n                                                         (concat \n                                                                 (select \n                                                                         len\n                                                                         (_ bv2 32)\n                                                                 )\n                                                                 (concat \n                                                                         (select \n                                                                                 len\n                                                                                 (_ bv1 32)\n                                                                         )\n                                                                         (select \n                                                                                 len\n                                                                                 (_ bv0 32)\n                                                                         )\n                                                                 )\n                                                         )\n                                                 )\n                                         )\n                                 )\n                         )\n                 )\n             )\n             (?B2\n                 (concat \n                         (select \n                                 off\n                                 (_ bv7 32)\n                         )\n                         (concat \n                                 (select \n                                         off\n                                         (_ bv6 32)\n                                 )\n                                 (concat \n                                         (select \n                                                 off\n                                                 (_ bv5 32)\n                                         )\n                                         (concat \n                                                 (select \n                                                         off\n                                                         (_ bv4 32)\n                                                 )\n                                                 (concat \n                                                         (select \n                                                                 off\n                                                                 (_ bv3 32)\n                                                         )\n                                                         (concat \n                                                                 (select \n                                                                         off\n                                                                         (_ bv2 32)\n                                                                 )\n                                                                 (concat \n                                                                         (select \n                                                                                 off\n                                                                                 (_ bv1 32)\n                                                                         )\n                                                                         (select \n                                                                                 off\n                                                                                 (_ bv0 32)\n                                                                         )\n                                                                 )\n                                                         )\n                                                 )\n                                         )\n                                 )\n                         )\n                 )\n             )\n            )\n            (and \n                 (and \n                      (and \n                           (bvult \n                                  (_ bv0 64)\n                                  ?B1\n                           )\n                           (bvule \n                                  ?B1\n                                  (_ bv256 64)\n                           )\n                      )\n                      (bvslt \n                             (_ bv100 64)\n                             ?B2\n                      )\n                 )\n                 (bvslt \n                        ?B2\n                        (_ bv65536 64)\n                 )\n            )\n        )\n)\n(check-sat)\n(exit)\n"
+    ],
+    "preconditions_meta": [
+      {
+        "name": "test000001",
+        "is_bug_witness": true,
+        "format": "smt2",
+        "size_chars": 6248
+      }
+    ]
+  },
+  "trigger": {
+    "function": "dr_w_dev_read",
+    "file": "evt_notifier.c",
+    "args": [
+      {
+        "name": "len",
+        "type": "int64",
+        "value_le_hex": "0xff",
+        "size_bytes": 8,
+        "source": "klee_witness:test000001"
+      },
+      {
+        "name": "off",
+        "type": "int64",
+        "value_le_hex": "0x65",
+        "size_bytes": 8,
+        "source": "klee_witness:test000001"
+      }
+    ]
+  },
+  "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-dr_w_dev_read-3f365890",
+  "metadata": {
+    "rule": "stase3/cpp/cwe-787-oob-buffer-index-write",
+    "bug_type": "CWE-787 (OOB_WRITE): Array index write where index is a length-like value (off-by-one / past-last-byte)",
+    "verdict_kind": "concrete_confirmed",
+    "crash_location": {
+      "file": "evt_notifier.c",
+      "line": 162,
+      "function": "dr_w_dev_read",
+      "source": "ret = copy_to_user(buffer, message + *offset, bytes_to_read);"
+    },
+    "memory_layout": [
+      {
+        "name": "ret",
+        "expr": "ret",
+        "locations": [
+          {
+            "offset": 0,
+            "size": 8
+          }
+        ]
+      }
+    ],
+    "memory_relation": {
+      "segment": "ret",
+      "symbol": "dr_w_dev_read"
+    },
+    "concrete_oracle": {
+      "oracle": "asan-userspace",
+      "violation_type": "heap-buffer-overflow",
+      "exit_code": 1,
+      "asan_excerpt": "==716785==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x50b000000540 at pc 0x7cdbcdafb42e bp 0x7ffddebb49d0 sp 0x7ffddebb4178\nREAD of size 64 at 0x50b000000540 thread T0\n    #0 0x7cdbcdafb42d in memcpy ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors_memintrinsics.inc:115\n    #1 0x56a5821534f2 in dr_w_dev_read /home/shafi/harden/eval3_demo/stase3/evt_notifier.c:162\n    #2 0x56a58215372a in main /home/shafi/harden/eval3_demo/stase3/evt_notifier.c:205\n    #3 0x7cdbcce2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #4 0x7cdbcce2a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #5 0x56a5821532a4 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/evt_notifier_line162/harness+0x22a4) (BuildId: d67e0d17f3e04ef08d49a848b062bbeb2c45a951)\n\n0x50b000000540 is located 1180 bytes after 100-byte region [0x50b000000040,0x50b0000000a4)\nallocated by thread T0 here:\n    #0 0x7cdbcdafd9c7 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69\n    #1 0x56a582153676 in main /home/shafi/harden/eval3_demo/stase3/evt_notifier.c:181\n    #2 0x7cdbcce2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #3 0x7cdbcce2a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #4 0x56a5821532a4 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/evt_notifier_line162/harness+0x22a4) (BuildId: d67e0d17f3e04ef08d49a848b062bbeb2c45a951)\n\nSUMMARY: AddressSanitizer: heap-buffer-overflow ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors_memintrinsics.inc:115 in memcpy\n",
+      "harness_source": "reproducer.c",
+      "harness_log": "reproducer.log"
+    },
+    "symex_oracle": {
+      "oracle": "klee",
+      "tests": 1,
+      "ptr_errors": 1,
+      "witness_test": "test000001",
+      "witness_validation": {
+        "validated": true,
+        "stage": "run",
+        "exit_code": 1,
+        "asan_violation_at": "evt_notifier.c:162",
+        "expected_at": "evt_notifier.c:162",
+        "match_frame": "any"
+      }
+    }
+  }
+}

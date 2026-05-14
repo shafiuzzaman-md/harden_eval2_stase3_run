@@ -1,0 +1,7 @@
+array do_exit[4] : w32 -> w8 = symbolic
+array do_route[4] : w32 -> w8 = symbolic
+(query [(Eq 1
+             (ReadLSB w32 0 do_exit))
+         (Eq 1
+             (ReadLSB w32 0 do_route))]
+        false)

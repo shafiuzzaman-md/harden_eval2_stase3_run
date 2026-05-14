@@ -1,0 +1,940 @@
+[2026-05-14 09:41:54] This is codeql execute queries -J-Xmx12910M --off-heap-ram=16066 --verbosity=progress --logdir=/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --dynamic-join-order-mode=none --output=/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/per_rule_bqrs/CVE_2020_0041_ValidatePtrBoundsMismatch.bqrs -- /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/db-cpp path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql
+[2026-05-14 09:41:54] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --format=json -- path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql
+[2026-05-14 09:41:54] [PROGRESS] resolve queries> Recording pack reference breach/generated-queries at /home/shafi/harden/eval3_demo/stase3/rules/generated.
+[2026-05-14 09:41:54] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql"
+                      ]
+[2026-05-14 09:41:54] Refusing fancy output: $CODEQL_ISATTY terminal indication is missing
+[2026-05-14 09:41:54] Creating executor with 1 threads.
+[2026-05-14 09:41:54] Calling plumbing command: codeql resolve extensions --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --include-extension-row-locations path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql
+[2026-05-14 09:41:54] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --allow-library-packs --format startingpacks -- path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql
+[2026-05-14 09:41:54] [PROGRESS] resolve queries> Recording pack reference breach/generated-queries at /home/shafi/harden/eval3_demo/stase3/rules/generated.
+[2026-05-14 09:41:54] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/shafi/harden/eval3_demo/stase3/rules/generated"
+                      ]
+[2026-05-14 09:41:54] Calling plumbing command: codeql resolve extensions-by-pack --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --include-extension-row-locations -- /home/shafi/harden/eval3_demo/stase3/rules/generated
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] breach/generated-queries: not 0.1.0 {root: breach/generated-queries@0.1.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] breach/generated-queries: 0.1.0 {breach/generated-queries: not 0.1.0 {root: breach/generated-queries@0.1.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] breach/generated-queries: * [*], codeql/cpp-all: not * [*] {dependency: breach/generated-queries@* [*] requires codeql/cpp-all@~1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 1] breach/generated-queries: 0.1.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/cpp-all: * [*] {breach/generated-queries: * [*], codeql/cpp-all: not * [*] {dependency: breach/generated-queries@* [*] requires codeql/cpp-all@~1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/dataflow@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/mad: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/mad@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/rangeanalysis: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/rangeanalysis@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/ssa: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/ssa@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/tutorial@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/typeflow: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/typeflow@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/util: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/xml: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/xml@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 2] codeql/cpp-all: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/xml: * [*] {codeql/cpp-all: * [*], codeql/xml: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/xml@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/util: * [*] {codeql/cpp-all: * [*], codeql/util: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/util@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/typeflow: * [*] {codeql/cpp-all: * [*], codeql/typeflow: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/typeflow@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/tutorial: * [*] {codeql/cpp-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/tutorial@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/ssa: * [*] {codeql/cpp-all: * [*], codeql/ssa: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/ssa@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/rangeanalysis: * [*] {codeql/cpp-all: * [*], codeql/rangeanalysis: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/rangeanalysis@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/mad: * [*] {codeql/cpp-all: * [*], codeql/mad: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/mad@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/dataflow: * [*] {codeql/cpp-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/dataflow@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/ssa: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/ssa@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/util: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 3] codeql/dataflow: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/typetracking: * [*] {codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/mad: * [*], codeql/util: not * [*] {dependency: codeql/mad@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 4] codeql/mad: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/rangeanalysis: * [*], codeql/util: not * [*] {dependency: codeql/rangeanalysis@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 5] codeql/rangeanalysis: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/ssa: * [*], codeql/util: not * [*] {dependency: codeql/ssa@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 6] codeql/ssa: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 7] codeql/tutorial: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/typeflow: * [*], codeql/util: not * [*] {dependency: codeql/typeflow@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 8] codeql/typeflow: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/typetracking: * [*], codeql/util: not * [*] {dependency: codeql/typetracking@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 9] codeql/typetracking: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 10] codeql/util: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/xml: * [*], codeql/util: not * [*] {dependency: codeql/xml@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve extensions-by-pack> [DECISION 11] codeql/xml: 1.0.0
+[2026-05-14 09:41:54] Plumbing command codeql resolve extensions-by-pack completed:
+                      {
+                        "models" : [ ],
+                        "data" : { },
+                        "threatModels" : { },
+                        "extensionPacks" : [ ]
+                      }
+[2026-05-14 09:41:54] Plumbing command codeql resolve extensions completed:
+                      {
+                        "models" : [ ],
+                        "data" : { },
+                        "threatModels" : { },
+                        "extensionPacks" : [ ]
+                      }
+[2026-05-14 09:41:54] Calling plumbing command: codeql resolve library-path --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --query=/home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql --format=json
+[2026-05-14 09:41:54] [DETAILS] resolve library-path> Resolving query at normalized path /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql.
+[2026-05-14 09:41:54] [DETAILS] resolve library-path> Found enclosing pack 'breach/generated-queries' at /home/shafi/harden/eval3_demo/stase3/rules/generated.
+[2026-05-14 09:41:54] [DETAILS] resolve library-path> Adding compilation cache at /home/shafi/.codeql/compile-cache.
+[2026-05-14 09:41:54] [DETAILS] resolve library-path> Resolving library dependencies from /home/shafi/harden/eval3_demo/stase3/rules/generated/qlpack.yml.
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] breach/generated-queries: not 0.1.0 {root: breach/generated-queries@0.1.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] breach/generated-queries: 0.1.0 {breach/generated-queries: not 0.1.0 {root: breach/generated-queries@0.1.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] breach/generated-queries: * [*], codeql/cpp-all: not * [*] {dependency: breach/generated-queries@* [*] requires codeql/cpp-all@~1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 1] breach/generated-queries: 0.1.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/cpp-all: * [*] {breach/generated-queries: * [*], codeql/cpp-all: not * [*] {dependency: breach/generated-queries@* [*] requires codeql/cpp-all@~1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/dataflow@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/mad: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/mad@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/rangeanalysis: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/rangeanalysis@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/ssa: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/ssa@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/tutorial@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/typeflow: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/typeflow@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/util: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/cpp-all: * [*], codeql/xml: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/xml@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 2] codeql/cpp-all: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/xml: * [*] {codeql/cpp-all: * [*], codeql/xml: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/xml@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/util: * [*] {codeql/cpp-all: * [*], codeql/util: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/util@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/typeflow: * [*] {codeql/cpp-all: * [*], codeql/typeflow: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/typeflow@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/tutorial: * [*] {codeql/cpp-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/tutorial@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/ssa: * [*] {codeql/cpp-all: * [*], codeql/ssa: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/ssa@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/rangeanalysis: * [*] {codeql/cpp-all: * [*], codeql/rangeanalysis: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/rangeanalysis@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/mad: * [*] {codeql/cpp-all: * [*], codeql/mad: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/mad@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/dataflow: * [*] {codeql/cpp-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/cpp-all@* [*] requires codeql/dataflow@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/ssa: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/ssa@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/util: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 3] codeql/dataflow: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DERIVATION] codeql/typetracking: * [*] {codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@1.0.0}}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/mad: * [*], codeql/util: not * [*] {dependency: codeql/mad@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 4] codeql/mad: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/rangeanalysis: * [*], codeql/util: not * [*] {dependency: codeql/rangeanalysis@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 5] codeql/rangeanalysis: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/ssa: * [*], codeql/util: not * [*] {dependency: codeql/ssa@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 6] codeql/ssa: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 7] codeql/tutorial: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/typeflow: * [*], codeql/util: not * [*] {dependency: codeql/typeflow@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 8] codeql/typeflow: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/typetracking: * [*], codeql/util: not * [*] {dependency: codeql/typetracking@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 9] codeql/typetracking: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 10] codeql/util: 1.0.0
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/xml: * [*], codeql/util: not * [*] {dependency: codeql/xml@* [*] requires codeql/util@1.0.0}
+[2026-05-14 09:41:54] [SPAMMY] resolve library-path> [DECISION 11] codeql/xml: 1.0.0
+[2026-05-14 09:41:54] [DETAILS] resolve library-path> QL pack dependencies for /home/shafi/harden/eval3_demo/stase3/rules/generated resolved OK.
+[2026-05-14 09:41:54] [DETAILS] resolve library-path> Found dbscheme through QL packs: /home/shafi/.codeql/packages/codeql/cpp-all/1.0.0/semmlecode.cpp.dbscheme.
+[2026-05-14 09:41:54] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/home/shafi/harden/eval3_demo/stase3/rules/generated",
+                          "/home/shafi/.codeql/packages/codeql/cpp-all/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/dataflow/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/mad/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/rangeanalysis/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/ssa/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/tutorial/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/typeflow/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/typetracking/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/util/1.0.0",
+                          "/home/shafi/.codeql/packages/codeql/xml/1.0.0"
+                        ],
+                        "dbscheme" : "/home/shafi/.codeql/packages/codeql/cpp-all/1.0.0/semmlecode.cpp.dbscheme",
+                        "compilationCache" : [
+                          "/home/shafi/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "breach/generated-queries/CVE_2020_0041_ValidatePtrBoundsMismatch.ql",
+                        "qlPackName" : "breach/generated-queries"
+                      }
+[2026-05-14 09:41:54] [PROGRESS] execute queries> Compiling query plan for /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql.
+[2026-05-14 09:41:54] [DETAILS] execute queries> Resolving imports for /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql.
+[2026-05-14 09:41:54] Resolved file set for /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql hashes to 91f35bf144d16f18ec5bceeb83a029f4.
+[2026-05-14 09:41:54] [DETAILS] execute queries> Checking QL for /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql.
+[2026-05-14 09:41:54] Stale frontend caches are invalidated based on import graph reachability.
+[2026-05-14 09:41:54] ExternalModuleBindingPass ...
+[2026-05-14 09:41:55] ExternalModuleBindingPass time: 00:00.332
+[2026-05-14 09:41:55] CollectInstantiationsPass ...
+[2026-05-14 09:41:55] CollectInstantiationsPass time: 00:00.055
+[2026-05-14 09:41:55] Ql checks ...
+[2026-05-14 09:41:56] Ql checks time: 00:01.158
+[2026-05-14 09:41:57] Compilation pipeline
+[2026-05-14 09:41:58] Type Inference ...
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: Best number of iterations,Maximum number of runs,Number of BDD variables,Size of BDD for typefacts
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,12,12
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,25,25
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,863,1847
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,64,182
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,9,14
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,350,1050
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,84,84
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,186,436
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,84,84
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,8
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,5,7
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,15,25
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,43,94
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,8
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,73,130
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,18,21
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,9,9
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,6,6
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,14,21
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,6,8
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,8,10
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,10
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,5
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,5
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,10
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,8,10
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,6,7
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,5
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,5
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,6,6
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,5
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,5
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,11,11
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,9,9
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,9,15
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,10
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,3,4
+[2026-05-14 09:41:58] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2026-05-14 09:41:58] Type Inference time: 00:00.567
+[2026-05-14 09:41:58] [DETAILS] execute queries> Optimizing /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql.
+[2026-05-14 09:41:58] Processing compilation pipeline
+[2026-05-14 09:41:58] Started compiling a query
+[2026-05-14 09:41:58] Initialising compiler...
+[2026-05-14 09:41:58] 	 ... compiler initialised
+[2026-05-14 09:41:58] About to start query optimisation
+[2026-05-14 09:41:58] Compilation cache hit - skipping compilation.
+[2026-05-14 09:41:58] Compilation cache hit - skipping compilation.
+[2026-05-14 09:41:58] Compilation cache hit - skipping compilation.
+[2026-05-14 09:41:59] Compilation cache hit - skipping compilation.
+[2026-05-14 09:41:59] Compilation cache hit - skipping compilation.
+[2026-05-14 09:41:59] Compilation cache hit - skipping compilation.
+[2026-05-14 09:41:59] Compilation cache miss for 6ba58488f81a317f0dc16627861c0fad.
+[2026-05-14 09:41:59] Stored compiled program for 6ba58488f81a317f0dc16627861c0fad.
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 84,105,67,291
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Resolving database upgrades/downgrades in search path for /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql
+[2026-05-14 09:41:59] Calling plumbing command: codeql resolve upgrades --additional-packs=/home/shafi/harden/eval3_demo/stase3/rules/generated:/home/shafi/.codeql/packages/codeql/cpp-all/1.0.0:/home/shafi/.codeql/packages/codeql/dataflow/1.0.0:/home/shafi/.codeql/packages/codeql/mad/1.0.0:/home/shafi/.codeql/packages/codeql/rangeanalysis/1.0.0:/home/shafi/.codeql/packages/codeql/ssa/1.0.0:/home/shafi/.codeql/packages/codeql/tutorial/1.0.0:/home/shafi/.codeql/packages/codeql/typeflow/1.0.0:/home/shafi/.codeql/packages/codeql/typetracking/1.0.0:/home/shafi/.codeql/packages/codeql/util/1.0.0:/home/shafi/.codeql/packages/codeql/xml/1.0.0 --target-sha=abfce5c170f93e281948f7689ece373464fdaf87 --allow-downgrades --dbscheme=/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/db-cpp/semmlecode.cpp.dbscheme --format=json
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Searching for upgrades that apply to e38346051783182ea75822e4adf8d4c6a949bc37.
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/harden/eval3_demo/stase3/rules/generated/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/cpp-all/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/dataflow/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/mad/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/rangeanalysis/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/ssa/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/tutorial/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/typeflow/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/typetracking/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/util/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/.codeql/packages/codeql/xml/1.0.0/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/codeql-cli/codeql/.codeqlmanifest.json
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/codeql-cli/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Not scanning from /home/shafi/codeql-cli/codeql which is already done.
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Will look for upgrades in /home/shafi/.codeql/packages/codeql/cpp-all/1.0.0/upgrades
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Will look for upgrades in /home/shafi/codeql-cli/codeql/legacy-upgrades/upgrades
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Found upgrade run ending at e38346051783182ea75822e4adf8d4c6a949bc37.
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Searching for downgrades that apply to e38346051783182ea75822e4adf8d4c6a949bc37.
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Found downgrade run ending at e38346051783182ea75822e4adf8d4c6a949bc37.
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Error resolving upgrades/downgrades with search paths []:
+                      Cannot downgrade to abfce5c170f93e281948f7689ece373464fdaf87: there are no downgrades beyond e38346051783182ea75822e4adf8d4c6a949bc37
+                      com.semmle.util.exception.ResourceError: Cannot downgrade to abfce5c170f93e281948f7689ece373464fdaf87: there are no downgrades beyond e38346051783182ea75822e4adf8d4c6a949bc37
+                      	at com.semmle.cli2.resolve.ResolveUpgradesCommand$AdaptationSequenceBuilder.checkPartialAdaptations(ResolveUpgradesCommand.java:372)
+                      	at com.semmle.cli2.resolve.ResolveUpgradesCommand$AdaptationSequenceBuilder.build(ResolveUpgradesCommand.java:354)
+                      	at com.semmle.cli2.resolve.ResolveUpgradesCommand.executeJSON(ResolveUpgradesCommand.java:98)
+                      	at com.semmle.cli2.resolve.ResolveUpgradesCommand.executeJSON(ResolveUpgradesCommand.java:36)
+                      	at com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSONWithExistingMessages(SimpleJsonSubcommand.java:121)
+                      	at com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:444)
+                      	at com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSON(SimpleJsonSubcommand.java:110)
+                      	at com.semmle.cli2.picocli.PlumbingRunner.call(PlumbingRunner.java:61)
+                      	at com.semmle.cli2.picocli.SubcommandCommon.callPlumbingInProcess(SubcommandCommon.java:170)
+                      	at com.semmle.cli2.ql.QuerySchemaAdapter.resolveAdaptationUsingPaths(QuerySchemaAdapter.java:163)
+                      	at com.semmle.cli2.ql.QuerySchemaAdapter.resolveAdaptationWithCache(QuerySchemaAdapter.java:114)
+                      	at com.semmle.cli2.ql.QuerySchemaAdapter.adaptToSchema(QuerySchemaAdapter.java:82)
+                      	at com.semmle.cli2.execute.ExecuteQueriesCommand$ExecutionIterator.startImpl(ExecuteQueriesCommand.java:229)
+                      	at com.semmle.cli2.execute.ExecuteQueriesCommand$ExecutionIterator.start(ExecuteQueriesCommand.java:192)
+                      	at com.semmle.cli2.execute.ExecuteQueriesCommand$ExecutionIterator.lambda$next$0(ExecuteQueriesCommand.java:187)
+                      	at com.semmle.util.concurrent.FutureUtils.supplyCompose(FutureUtils.java:248)
+                      	at com.semmle.util.concurrent.Paralleliser.lambda$startMoreJobs$3(Paralleliser.java:109)
+                      	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+                      	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+                      	at java.base/java.lang.Thread.run(Unknown Source)
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Resolving database downgrades in extractor directories for /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql
+[2026-05-14 09:41:59] Calling plumbing command: codeql resolve languages --format=json
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /home/shafi/codeql-cli/codeql/.codeqlmanifest.json
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/rust/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/csharp/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/yaml/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/javascript/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/csv/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/cpp/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/actions/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/ruby/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/go/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/python/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/xml/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/swift/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/java/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/html/codeql-extractor.yml.
+[2026-05-14 09:41:59] [DETAILS] resolve languages> Parsing /home/shafi/codeql-cli/codeql/properties/codeql-extractor.yml.
+[2026-05-14 09:41:59] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "rust" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/rust",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                },
+                                "cargo_target_dir" : {
+                                  "title" : "Directory to use for cargo output files.",
+                                  "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_target" : {
+                                  "title" : "Target architecture",
+                                  "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_features" : {
+                                  "title" : "Cargo features to turn on",
+                                  "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "cargo_cfg_overrides" : {
+                                  "title" : "Cargo cfg overrides",
+                                  "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    },
+                                    "flamegraph" : {
+                                      "title" : "[Experimental] File path for write flame graph log",
+                                      "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+                                      "type" : "string"
+                                    }
+                                  }
+                                },
+                                "skip_path_resolution" : {
+                                  "title" : "Skip path resolution",
+                                  "description" : "Skip path resolution. This is experimental, while we move path resolution from the extractor to the QL library.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_dependencies_as_source" : {
+                                  "title" : "Extract dependencies as source code",
+                                  "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/yaml"
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/csv"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/xml"
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/swift"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/html"
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/home/shafi/codeql-cli/codeql/properties"
+                            }
+                          ]
+                        }
+                      }
+[2026-05-14 09:41:59] Calling plumbing command: codeql resolve upgrades --search-path=/home/shafi/codeql-cli/codeql/cpp --target-sha=abfce5c170f93e281948f7689ece373464fdaf87 --allow-downgrades --dbscheme=/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/db-cpp/semmlecode.cpp.dbscheme --format=json
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Searching for upgrades that apply to e38346051783182ea75822e4adf8d4c6a949bc37.
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/codeql-cli/codeql/cpp/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/codeql-cli/codeql/.codeqlmanifest.json
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/shafi/codeql-cli/
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Not scanning from /home/shafi/codeql-cli/codeql which is already done.
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Will look for upgrades in /home/shafi/codeql-cli/codeql/legacy-upgrades/upgrades
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Found upgrade run ending at e38346051783182ea75822e4adf8d4c6a949bc37.
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Searching for downgrades that apply to e38346051783182ea75822e4adf8d4c6a949bc37.
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Will look for downgrades in /home/shafi/codeql-cli/codeql/cpp/downgrades
+[2026-05-14 09:41:59] [DETAILS] resolve upgrades> Found downgrade run ending at abfce5c170f93e281948f7689ece373464fdaf87.
+[2026-05-14 09:41:59] Plumbing command codeql resolve upgrades completed:
+                      {
+                        "scripts" : [
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/e38346051783182ea75822e4adf8d4c6a949bc37",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/9baef67d1ffc1551429dbe1c1130815693e28218",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/a8c2176e9a5cf9be8d17053a4c8e7e56b5aced6d",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/3c45f8b9e71ec723bf50c40581e1f18f4f25e290",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/af887e83a815a9cefe774ffa80e2493a1365b9e2",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/9a7c3c14c1076f64b871719117a558733d987b48",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/2e2d805ef93d060b813403cb9b51dc72455a4c68",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/0f0a390468a5eb43d1dc72937c028070b106bf53",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/e594389175c098d7225683d0fd8cefcc47d84bc1",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/59cb96ca699929b63941e81905f9b8de7eed59a6",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/1aa71a4a687fc93f807d4dfeeef70feceeced242",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/a01d8f91b8d49259e509b574962dec90719f69a6",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/dd32242a870867a532bb0b2a88a6a917a5b4c26f",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/1a4bbe5ded083b9de87911c155fc99ca22ecb0ce",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/7eeff19bf7c89a350d3e43516a33c98a270cb057",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/f786eb3f5dfddb0ac914ab09551bf1c5c64b47c0",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/4813509d85b45ae17421c036905199f7324cf228",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/c3881af7e5b247d126aea68a1901b4497adf3d83",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/d6a03a00b9824f27241b58b8e18208f31c03904a",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/f0156f5f88ab5967c79162012c20f30600ca5ebf",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/e51fad7a2436caefab0c6bd52f05e28e7cce4d92",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/6f5d51e89e762fe4609fd4ac8ee3afb04221e873",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/7ff6a6e53dbcff09d1b9b758b594bc6d17366863",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/0fea0ee7026c7c3f7d6faef4df4bf67847b67d71",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/02a123a1a681f98cf502f189a2a79b0dfb398e59",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/68930f3b81bbe3fdbb91c850deca1fec8072d62a",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/e197626a6ebccd052d5c891975fccf8aebcc9803",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/9629fc87dab7dbed0771bf5ce22bce4d7f943b52",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/25e365d1e8147df0f759b604f96eb4bffea48271",
+                          "/home/shafi/codeql-cli/codeql/cpp/downgrades/3d35dd6b50edfc540c14c6757e0c7b3c5b7b04dd"
+                        ],
+                        "finalDbscheme" : "/home/shafi/codeql-cli/codeql/cpp/downgrades/3d35dd6b50edfc540c14c6757e0c7b3c5b7b04dd/semmlecode.cpp.dbscheme",
+                        "matchesTarget" : true
+                      }
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 9baef67d1ffc1551429dbe1c1130815693e28218: Arm scalable vector type support
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme a8c2176e9a5cf9be8d17053a4c8e7e56b5aced6d: Add a predicate `getAnAttribute` to `Namespace`
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 3c45f8b9e71ec723bf50c40581e1f18f4f25e290: Support `__leave` statement
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme af887e83a815a9cefe774ffa80e2493a1365b9e2: capture whether a lambda has an explicitly specified parameter list.
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 9a7c3c14c1076f64b871719117a558733d987b48: Support __mfp8 type
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 2e2d805ef93d060b813403cb9b51dc72455a4c68: Support C23 typeof and typeof_unqual
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 0f0a390468a5eb43d1dc72937c028070b106bf53: add `hasDesignator` predicate to `ArrayOrVectorAggregateLiteral` and `ClassAggregateLiteral`
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme e594389175c098d7225683d0fd8cefcc47d84bc1: Add a new predicate `isVla()` to the `ArrayType` class
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 59cb96ca699929b63941e81905f9b8de7eed59a6: Mix typedefs and usings
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 1aa71a4a687fc93f807d4dfeeef70feceeced242: Support #elifdef, #elifndef and #import
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme a01d8f91b8d49259e509b574962dec90719f69a6: Support (not) consteval if
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme dd32242a870867a532bb0b2a88a6a917a5b4c26f: Improve user types and proxy classes
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 1a4bbe5ded083b9de87911c155fc99ca22ecb0ce: Support requires clauses and type constraints
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 7eeff19bf7c89a350d3e43516a33c98a270cb057: Support variable template specializations
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme f786eb3f5dfddb0ac914ab09551bf1c5c64b47c0: Support concept id expressions
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 4813509d85b45ae17421c036905199f7324cf228: Support concept templates
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme c3881af7e5b247d126aea68a1901b4497adf3d83: Support template template parameter arguments and instantiations
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme d6a03a00b9824f27241b58b8e18208f31c03904a: Allow sizeof pack in sizeof_bind
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme f0156f5f88ab5967c79162012c20f30600ca5ebf: Support non-type template parameters
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme e51fad7a2436caefab0c6bd52f05e28e7cce4d92: Implement compilation_build_mode/2
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 6f5d51e89e762fe4609fd4ac8ee3afb04221e873: Support C++20 requires expressions
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 7ff6a6e53dbcff09d1b9b758b594bc6d17366863: Add requires expr
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 0fea0ee7026c7c3f7d6faef4df4bf67847b67d71: Improve handling of coroutine placeholder variables
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 02a123a1a681f98cf502f189a2a79b0dfb398e59: Expose C11 _Generics
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 68930f3b81bbe3fdbb91c850deca1fec8072d62a: Add new builtin operations
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme e197626a6ebccd052d5c891975fccf8aebcc9803: description: Support explicit(bool) specifiers
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 9629fc87dab7dbed0771bf5ce22bce4d7f943b52: Add relation between deduction guides and class templates
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 25e365d1e8147df0f759b604f96eb4bffea48271: Support destroying deletes
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme 3d35dd6b50edfc540c14c6757e0c7b3c5b7b04dd: Revert support for using-enum declarations.
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [SPAMMY] execute queries> Compiling upgrade to dbscheme abfce5c170f93e281948f7689ece373464fdaf87: Add new builtin operations
+[2026-05-14 09:41:59] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2026-05-14 09:41:59] CSV_COMPILATION: 0,0,0,0
+[2026-05-14 09:41:59] [PROGRESS] execute queries> [1/1 comp 4.9s] Compiled /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql.
+[2026-05-14 09:41:59] [PROGRESS] execute queries> Starting evaluation of breach/generated-queries/CVE_2020_0041_ValidatePtrBoundsMismatch.ql.
+[2026-05-14 09:41:59] Starting evaluation of /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql
+[2026-05-14 09:41:59] (0s) Start query execution
+[2026-05-14 09:41:59] (0s) Beginning execution of /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_ResolveFunction::isFunction/1#9226b83f/1@ae4b197g with 179 rows and digest acd200dohvca7l03j809pao5ur1.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@f735bd03 with 3155 rows and digest 27e792gplsla4us0jsup80ctu03.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@d019c23t with 3155 rows and digest 27e792gplsla4us0jsup80ctu03.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_new_exprs#query/3@acade07u with 3155 rows and digest 27e792gplsla4us0jsup80ctu03.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@4dd12e3r with 3155 rows and digest 27e792gplsla4us0jsup80ctu03.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@13431823 with 3155 rows and digest 27e792gplsla4us0jsup80ctu03.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/6@ae376f6a with 58 rows and digest 6f1f57b6tm62jombrsgmu6e9iac.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/6@18d58cgh with 58 rows and digest da14f01e0op6vur7ehtmtrrbg1a.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/4@1deb80o5 with 220 rows and digest 12a6a9i8pelnva53avui4i187e3.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/4@7deec14v with 220 rows and digest 12a6a9i8pelnva53avui4i187e3.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@a93bf4ne with 485 rows and digest 0bbdadsq58f1vqkm20gglnfko1a.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@3a21ab2r with 485 rows and digest 0bbdadsq58f1vqkm20gglnfko1a.
+[2026-05-14 09:41:59] (0s)  >>> First-level cache hit cached_#select#query/4@d1c7a4ab with empty relation.
+[2026-05-14 09:41:59] (0s) Inferred that project#decltypes/1@7fc12b5e is empty, due to cached_#select#query/4@d1c7a4ab.
+[2026-05-14 09:41:59] (0s) Inferred that project#decltypes#2/2@e80ba2pr is empty, due to cached_#select#query/4@d1c7a4ab.
+[2026-05-14 09:41:59] (0s) Inferred that Type::Decltype#2a58cb8b/1@c39defqp is empty, due to project#decltypes/1@7fc12b5e.
+[2026-05-14 09:41:59] (0s) Inferred that Type::Decltype.getBaseType/0#dispred#f3b613af/2@f1bbad7g is empty, due to project#decltypes#2/2@e80ba2pr.
+[2026-05-14 09:41:59] (0s) Inferred that Type::Decltype.getBaseType/0#dispred#f3b613af_10#join_rhs/2@86aea9t1 is empty, due to Type::Decltype.getBaseType/0#dispred#f3b613af/2@f1bbad7g.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_ResolveClass::isType/1#eabb9878/1@3646f2tb with 782 rows and digest 4e29f9afkg8thi927nq3dc8kjv5.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_ResolveClass::isClass/1#af2a1ca6/1@ddffd988 with 195 rows and digest ad4388h601oe72m4n86q8vg0b17.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/4@db4fb2qs with 304 rows and digest 32bd41a7jk38ibki6gch7cilk09.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_ResolveGlobalVariable::resolveGlobalVariable/1#17c3b74f/2@5ac9cdnp with 1203 rows and digest 9d9fdbnfmai7t6avo2ogjrrj7va.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_ResolveFunction::resolveFunction/1#576ba5ee/2@b0c3f0o2 with 179 rows and digest 2b6948fduqhqugjbns2tn5vlk11.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_ResolveGlobalVariable::isVariable/1#6e051315/1@d3d53ep9 with 1202 rows and digest f3266do6eedd91kmnkmv96v8hk8.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_ResolveClass::resolveClass/1#ea47deee/2@68fb4em1 with 485 rows and digest d9efe6aa57vnib5fgef01bdtul5.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_new_exprparents#query/3@fd30d42g with 2198 rows and digest c41f7ch2ffjjgt059v18g699ue7.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@2989c0d5 with 432 rows and digest c196183bmrui8c4d34n5ghijpm9.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@2f4bd9c8 with 432 rows and digest c196183bmrui8c4d34n5ghijpm9.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_Expr::Expr.getType/0#dispred#444cc5af/2@39847fru with 3155 rows and digest 9980c4jeeicdno7df1squ7g6vr4.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/3@f5a26dnv with 3708 rows and digest da5715k4vo4tf8rrfd7jdkfneg0.
+[2026-05-14 09:41:59] (0s)  >>> First-level cache hit cached_#select#query/3@f8957e53 with empty relation.
+[2026-05-14 09:41:59] (0s) Inferred that _namespaces_usings#antijoin_rhs/1@7cabdfnb is empty, due to cached_#select#query/3@f8957e53.
+[2026-05-14 09:41:59] (0s) Inferred that Namespace::UsingDeclarationEntry#2cf1c4fb/1@765c8962 is empty, due to cached_#select#query/3@f8957e53.
+[2026-05-14 09:41:59] (0s) Inferred that usings_102#join_rhs/3@a6c73aqu is empty, due to cached_#select#query/3@f8957e53.
+[2026-05-14 09:41:59] (0s) Inferred that Namespace::UsingDeclarationEntry.getDeclaration/0#dispred#4a7ed8c3/2@2392045d is empty, due to Namespace::UsingDeclarationEntry#2cf1c4fb/1@765c8962.
+[2026-05-14 09:41:59] (0s) Inferred that Namespace::UsingDirectiveEntry.getNamespace/0#dispred#50b15a6f/2@5543b9jm is empty, due to usings_102#join_rhs/3@a6c73aqu.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/2@37fae43h with 11 rows and digest 7da691lbdbccnkv3djgebfl0kd7.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_Element::ElementBase.toString/0#dispred#6e016f86/2@d1c0abo7 with 18033 rows and digest e7fbddj7vfe93dbh4qbddh35bt4.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_QualifiedName::declarationHasQualifiedName/4#749d7d29/4@2bd2b2lm with 2380 rows and digest 718c9eslfo280su6hl8m3kj5t4a.
+[2026-05-14 09:41:59] (0s)  >>> First-level cache hit cached_#select#query/2@8cecc9ko with empty relation.
+[2026-05-14 09:41:59] (0s)  >>> First-level cache hit cached_#select#query/4@4abe00pl with empty relation.
+[2026-05-14 09:41:59] (0s)  >>> First-level cache hit cached_#select#query/4@b8f9694j with empty relation.
+[2026-05-14 09:41:59] (0s)  >>> Full cache hit cached_#select#query/4@564c1a19 with 5 rows and digest 300aeffibgl601a8dda45si7j80.
+[2026-05-14 09:41:59] (0s)  >>> First-level cache hit cached_#select#query/3@b787eb1v with empty relation.
+[2026-05-14 09:41:59] (0s)  >>> Created relation iscall/2@f514bf4e with 117 rows and digest c3d514hesqdj33qtrn9iq25vbca.
+[2026-05-14 09:41:59] (0s)  >>> Created relation funbind/2@a07059qu with 118 rows and digest c28db4gd8rah7djmvocmr2nfn74.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Expr::Expr.getChild/1#dispred#e5374b3c/3@d834542r
+[2026-05-14 09:41:59] (0s)  >>> Created relation Expr::Expr.getChild/1#dispred#e5374b3c/3@d834542r with 1025 rows and digest d64eafc0thomh4qt17c1qv4qlle.
+[2026-05-14 09:41:59] (0s)  >>> Created relation varbind/2@0ef4ddtb with 280 rows and digest 1a3a53kt9jpa02aadpb9bjpdkve.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate exprs_10#join_rhs/2@4d6abb49
+[2026-05-14 09:41:59] (0s)  >>> Created relation exprs_10#join_rhs/2@4d6abb49 with 3155 rows and digest d73da1g9s2b1f4fu725pisp6ge0.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate _exprs_10#join_rhs#antijoin_rhs/1@69627erf
+[2026-05-14 09:41:59] (0s)  >>> Created relation _exprs_10#join_rhs#antijoin_rhs/1@69627erf with 118 rows and digest 19373c4f5i9l11i70u3rmp7tii4.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate @access/1@0f29381b
+[2026-05-14 09:41:59] (0s)  >>> Created relation @access/1@0f29381b with 398 rows and digest fb7da1gc9lnnduvpq311m0f5tp9.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate iscall_0#antijoin_rhs/1@7ed418hm
+[2026-05-14 09:41:59] (0s)  >>> Created relation iscall_0#antijoin_rhs/1@7ed418hm with 117 rows and digest b57a740gcfd0isl0jc60p4ogu6d.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Access::Access#bfafc000/1@3bc57321
+[2026-05-14 09:41:59] (0s)  >>> Created relation Access::Access#bfafc000/1@3bc57321 with 281 rows and digest fa8c95r4q7p1mo7cjetu2j83se4.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate _Access::Access#bfafc000_exprs_10#join_rhs#shared/1@6dc09fsl
+[2026-05-14 09:41:59] (0s)  >>> Created relation _Access::Access#bfafc000_exprs_10#join_rhs#shared/1@6dc09fsl with 280 rows and digest 3eb6c4snvuh3cm382eeva97bbf2.
+[2026-05-14 09:41:59] (0s)  >>> Created relation functions/3@3c09047a with 179 rows and digest 62ea99hpegbmi9ai2gii3kp7un8.
+[2026-05-14 09:41:59] (0s)  >>> Created relation membervariables/3@a109e7ik with 814 rows and digest 13ee87d8sraukqcl6omtln1jtca.
+[2026-05-14 09:41:59] (0s)  >>> Created relation localvariables/3@dc5ff1mr with 53 rows and digest 3431ddegkvdbse9aiingeeppc8d.
+[2026-05-14 09:41:59] (0s)  >>> Created relation globalvariables/3@056b2d2g with 32 rows and digest 9d9b2adragjlpqs1lpf7r5ohkr3.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate functions_0#antijoin_rhs/1@24d7f7aa
+[2026-05-14 09:41:59] (0s)  >>> Created relation functions_0#antijoin_rhs/1@24d7f7aa with 179 rows and digest acd200dohvca7l03j809pao5ur1.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate @variable#b/1@3f0d82in
+[2026-05-14 09:41:59] (0s)  >>> Created relation @variable#b/1@3f0d82in with 1203 rows and digest ba3efaa6bas9sjij8i8h86jvj71.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate _@variable#b__Access::Access#bfafc000_exprs_10#join_rhs#shared_functions_0#antijoin_rhs_varbind#antijoin_rhs/1@866574jt
+[2026-05-14 09:41:59] (0s)  >>> Created relation _@variable#b__Access::Access#bfafc000_exprs_10#join_rhs#shared_functions_0#antijoin_rhs_varbind#antijoin_rhs/1@866574jt with 13 rows and digest c0b700amm6nu23te73c9in7lpu9.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Access::VariableAccess#27163138/1@d8fd29mh
+[2026-05-14 09:41:59] (0s)  >>> Created relation Access::VariableAccess#27163138/1@d8fd29mh with 267 rows and digest 4e3f3c6iu2hqegne8on7sai9ru8.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Access::VariableAccess.getTarget/0#238a7818/2@ba88e3o0
+[2026-05-14 09:41:59] (0s)  >>> Created relation Access::VariableAccess.getTarget/0#238a7818/2@ba88e3o0 with 267 rows and digest db8725it3doskmuqvcgmosjplh8.
+[2026-05-14 09:41:59] (0s)  >>> Created relation fieldoffsets/3@baec5f83 with 814 rows and digest f6de64cva62i8ts00n9jn777ss2.
+[2026-05-14 09:41:59] (0s)  >>> Created relation member/3@d2f9a19s with 814 rows and digest 10dea7pl6sfotkvb7q8scn7nnke.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Class::Class.getCanonicalMember/1#dispred#e1747079/3@f46081r5
+[2026-05-14 09:41:59] (0s)  >>> Created relation Class::Class.getCanonicalMember/1#dispred#e1747079/3@f46081r5 with 814 rows and digest 10dea7pl6sfotkvb7q8scn7nnke.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate project#Class::Class.getCanonicalMember/1#dispred#e1747079/1@2243965g
+[2026-05-14 09:41:59] (0s)  >>> Created relation project#Class::Class.getCanonicalMember/1#dispred#e1747079/1@2243965g with 814 rows and digest 28bcefg2viigtpahtlqe4g7p592.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate m#Declaration::Declaration.isMember/0#dispred#de845e36#b/1@ffa41fu1
+[2026-05-14 09:41:59] (0s)  >>> Created relation m#Declaration::Declaration.isMember/0#dispred#de845e36#b/1@ffa41fu1 with 993 rows and digest b381745ljdr97v6pfuljdllpe3c.
+[2026-05-14 09:41:59] (0s)  >>> Created relation variable_instantiation/2@1e9626ek with 0 rows and digest THIS-RELATION-HAS-NO-TUPLES.
+[2026-05-14 09:41:59] (0s) Inferred that Variable::Variable.isConstructedFrom/1#dispred#fbdd4275/2@b6d0e1jm is empty, due to variable_instantiation/2@1e9626ek.
+[2026-05-14 09:41:59] (0s) Inferred that variable_instantiation_10#join_rhs/2@9875d69q is empty, due to variable_instantiation/2@1e9626ek.
+[2026-05-14 09:41:59] (0s) Inferred that Variable::TemplateVariable.getAnInstantiation/0#dispred#f6b531ee/2@fbba9dra is empty, due to Variable::Variable.isConstructedFrom/1#dispred#fbdd4275/2@b6d0e1jm.
+[2026-05-14 09:41:59] (0s) Inferred that Variable::Variable.isConstructedFrom/1#dispred#fbdd4275_10#join_rhs/2@ce9471gc is empty, due to Variable::Variable.isConstructedFrom/1#dispred#fbdd4275/2@b6d0e1jm.
+[2026-05-14 09:41:59] (0s)  >>> Created relation is_variable_template/1@ebc81e79 with 0 rows and digest THIS-RELATION-HAS-NO-TUPLES.
+[2026-05-14 09:41:59] (0s)  >>> Created relation is_function_template/1@7d32268e with 0 rows and digest THIS-RELATION-HAS-NO-TUPLES.
+[2026-05-14 09:41:59] (0s) Inferred that _is_function_template_project#function_template_argument#shared/1@4a15abee is empty, due to is_function_template/1@7d32268e.
+[2026-05-14 09:41:59] (0s) Inferred that _is_function_template_project#Declaration::Declaration.getATemplateArgument/0#dispred#260b9dcc#shared/1@eb59f69k is empty, due to is_function_template/1@7d32268e.
+[2026-05-14 09:41:59] (0s) Inferred that Function::TemplateFunction.getAnInstantiation/0#dispred#578175e9#fb/2@17ef0402 is empty, due to is_function_template/1@7d32268e.
+[2026-05-14 09:41:59] (0s) Inferred that __is_function_template_project#function_template_argument#shared_fun_decls_10#join_rhs_fun_specializ__#antijoin_rhs/1@5b0b52f0 is empty, due to _is_function_template_project#function_template_argument#shared/1@4a15abee.
+[2026-05-14 09:41:59] (0s) Inferred that QualifiedName::TemplateFunction.getAnInstantiation/0#dispred#1cbe8684/2@ea8cd8ov is empty, due to _is_function_template_project#function_template_argument#shared/1@4a15abee.
+[2026-05-14 09:41:59] (0s) Inferred that _Function::Function.isConstructedFrom/1#dispred#2edd856f_10#join_rhs_ResolveFunction::isFunction/1#9__#antijoin_rhs/2@855ac778 is empty, due to _is_function_template_project#Declaration::Declaration.getATemplateArgument/0#dispred#260b9dcc#shared/1@eb59f69k.
+[2026-05-14 09:41:59] (0s) Inferred that Function::TemplateFunction.getAnInstantiation/0#dispred#578175e9/2@11fad93i is empty, due to _is_function_template_project#Declaration::Declaration.getATemplateArgument/0#dispred#260b9dcc#shared/1@eb59f69k.
+[2026-05-14 09:41:59] (0s) Inferred that _Function::Function.isConstructedFrom/1#dispred#2edd856f#bf_10#join_rhs_ResolveFunction::isFunction/__#antijoin_rhs/2@9119d5hr is empty, due to _is_function_template_project#Declaration::Declaration.getATemplateArgument/0#dispred#260b9dcc#shared/1@eb59f69k.
+[2026-05-14 09:41:59] (0s) Inferred that Function::TemplateFunction.getAnInstantiation/0#dispred#578175e9#fb/2@c891e77s is empty, due to _is_function_template_project#Declaration::Declaration.getATemplateArgument/0#dispred#260b9dcc#shared/1@eb59f69k.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Declaration::Declaration.isMember/0#dispred#de845e36#b/1@d6c31e2n
+[2026-05-14 09:41:59] (0s)  >>> Created relation Declaration::Declaration.isMember/0#dispred#de845e36#b/1@d6c31e2n with 814 rows and digest 28bcefg2viigtpahtlqe4g7p592.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Field::Field#3a3ce059/1@184c1fv9
+[2026-05-14 09:41:59] (0s)  >>> Created relation Field::Field#3a3ce059/1@184c1fv9 with 814 rows and digest 28bcefg2viigtpahtlqe4g7p592.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate varbind_10#join_rhs/2@e0817ads
+[2026-05-14 09:41:59] (0s)  >>> Created relation varbind_10#join_rhs/2@e0817ads with 280 rows and digest 4c5b7bmbqjesfsnf7v64gg7tbd7.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Access::FieldAccess#d1ccd326/1@a61bc6sp
+[2026-05-14 09:41:59] (0s)  >>> Created relation Access::FieldAccess#d1ccd326/1@a61bc6sp with 22 rows and digest 012379053huh7rplmunihia45n9.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Access::Access.getTarget/0#dispred#cf25c8aa/2@031d86hd
+[2026-05-14 09:41:59] (0s)  >>> Created relation Access::Access.getTarget/0#dispred#cf25c8aa/2@031d86hd with 22 rows and digest e4a13a8qcbm9a2jjv1mga7o3h47.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate CVE_2020_0041_ValidatePtrBoundsMismatch::SizeLikeField#8568f447/1@25f1a8qi
+[2026-05-14 09:41:59] (0s)  >>> Created relation CVE_2020_0041_ValidatePtrBoundsMismatch::SizeLikeField#8568f447/1@25f1a8qi with 72 rows and digest 3a1a8ck44e342i16qpblaujp2ka.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate Expr::Expr.getChild/1#dispred#e5374b3c_20#join_rhs/2@7c9c2163
+[2026-05-14 09:41:59] (0s)  >>> Created relation Expr::Expr.getChild/1#dispred#e5374b3c_20#join_rhs/2@7c9c2163 with 1025 rows and digest 8ed670r423imrhm68thdga1is3a.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped/2@i1#87c6b684 (iteration 1)
+[2026-05-14 09:41:59] (0s) 			 - #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped_delta has 1 rows (order for disjuncts: delta=<standard>).
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped/2@i2#87c6b684 (iteration 2)
+[2026-05-14 09:41:59] (0s) 			 - #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped_delta has 1 rows (order for disjuncts: delta=<standard>).
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped/2@i3#87c6b684 (iteration 3)
+[2026-05-14 09:41:59] (0s) Empty delta for #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped_delta (order for disjuncts: delta=<standard>).
+[2026-05-14 09:41:59] (0s) Accumulating deltas
+[2026-05-14 09:41:59] (0s)  >>> Created relation #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped/2@87c6b684 with 2 rows and digest baafdcit13l4hnch4a99li341l3.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped_10#join_rhs/2@ab12b6rt
+[2026-05-14 09:41:59] (0s)  >>> Created relation #Expr::Expr.getAChild/0#dispred#90427aa9Plus#fb#flipped_10#join_rhs/2@ab12b6rt with 2 rows and digest a35c2c22krlv22q51jtuujungee.
+[2026-05-14 09:41:59] (0s) Starting to evaluate predicate CVE_2020_0041_ValidatePtrBoundsMismatch::isSumOfSizeFields/1#53825f7f/1@ce542agn
+[2026-05-14 09:41:59] (0s)  >>> Created relation CVE_2020_0041_ValidatePtrBoundsMismatch::isSumOfSizeFields/1#53825f7f/1@ce542agn with 0 rows and digest THIS-RELATION-HAS-NO-TUPLES.
+[2026-05-14 09:41:59] (0s) Inferred that Call::Call.getArgument/1#fc4b9588#ffb/3@8c3d7b5o is empty, due to CVE_2020_0041_ValidatePtrBoundsMismatch::isSumOfSizeFields/1#53825f7f/1@ce542agn.
+[2026-05-14 09:41:59] (0s) Inferred that m#CVE_2020_0041_ValidatePtrBoundsMismatch::ValidatorCall#020abc2d#b/1@387de9v5 is empty, due to Call::Call.getArgument/1#fc4b9588#ffb/3@8c3d7b5o.
+[2026-05-14 09:41:59] (0s) Inferred that m#Call::FunctionCall.getTarget/0#dispred#935da4c5#bf/1@506d219t is empty, due to m#CVE_2020_0041_ValidatePtrBoundsMismatch::ValidatorCall#020abc2d#b/1@387de9v5.
+[2026-05-14 09:41:59] (0s) Inferred that Call::FunctionCall.getTarget/0#45745a57#bf/2@a52a5cfo is empty, due to m#Call::FunctionCall.getTarget/0#dispred#935da4c5#bf/1@506d219t.
+[2026-05-14 09:41:59] (0s) Inferred that _Call::FunctionCall.getTarget/0#45745a57#bf_m#Call::FunctionCall.getTarget/0#dispred#935da4c5#bf#shared/2@2f66bej0 is empty, due to Call::FunctionCall.getTarget/0#45745a57#bf/2@a52a5cfo.
+[2026-05-14 09:41:59] (0s) Inferred that Call::FunctionCall.getTarget/0#dispred#935da4c5#bf/2@f8053bnq is empty, due to Call::FunctionCall.getTarget/0#45745a57#bf/2@a52a5cfo.
+[2026-05-14 09:41:59] (0s) Inferred that Call::ConstructorCall#c4f8b4c6#b/1@8697d0kf is empty, due to _Call::FunctionCall.getTarget/0#45745a57#bf_m#Call::FunctionCall.getTarget/0#dispred#935da4c5#bf#shared/2@2f66bej0.
+[2026-05-14 09:41:59] (0s) Inferred that Call::DestructorCall#43f8f365#b/1@652ebc0u is empty, due to _Call::FunctionCall.getTarget/0#45745a57#bf_m#Call::FunctionCall.getTarget/0#dispred#935da4c5#bf#shared/2@2f66bej0.
+[2026-05-14 09:41:59] (0s) Inferred that CVE_2020_0041_ValidatePtrBoundsMismatch::ValidatorCall#020abc2d#b/1@55ac45hv is empty, due to Call::FunctionCall.getTarget/0#dispred#935da4c5#bf/2@f8053bnq.
+[2026-05-14 09:41:59] (0s) Inferred that #select/2@4d2e93no is empty, due to CVE_2020_0041_ValidatePtrBoundsMismatch::ValidatorCall#020abc2d#b/1@55ac45hv.
+[2026-05-14 09:41:59] (0s) Inferred that _#select_Expr::Expr.getLocation/0#dispred#0a3d90c6#shared/3@2f00983t is empty, due to #select/2@4d2e93no.
+[2026-05-14 09:41:59] (0s) Inferred that #select#query/8@d7d77b3p is empty, due to #select/2@4d2e93no.
+[2026-05-14 09:41:59] (0s) Inferred that _Location::Location.hasLocationInfo/5#dispred#558082fb__#select_Expr::Expr.getLocation/0#dispred#0a3__#antijoin_rhs/2@1946fe7a is empty, due to _#select_Expr::Expr.getLocation/0#dispred#0a3d90c6#shared/3@2f00983t.
+[2026-05-14 09:41:59] (0s) Query done
+[2026-05-14 09:41:59] (0s) Sequence stamp origin is -5914097319426851010
+[2026-05-14 09:41:59] (0s) Pausing evaluation to sync to disk at sequence stamp o+0
+[2026-05-14 09:41:59] (0s) Unpausing evaluation
+[2026-05-14 09:41:59] Evaluation of /home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2020_0041_ValidatePtrBoundsMismatch.ql produced BQRS results.
+[2026-05-14 09:41:59] [PROGRESS] execute queries> [1/1 eval 60ms] Evaluation done; writing results to /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/per_rule_bqrs/CVE_2020_0041_ValidatePtrBoundsMismatch.bqrs.
+[2026-05-14 09:41:59] [PROGRESS] execute queries> Shutting down query evaluator.
+[2026-05-14 09:41:59] Pausing evaluation to close the cache at sequence stamp o+1
+[2026-05-14 09:41:59] The disk cache is freshly trimmed; leave it be.
+[2026-05-14 09:41:59] Unpausing evaluation
+[2026-05-14 09:41:59] This NaiveBuddyAllocator requested 0 eviction rounds.
+[2026-05-14 09:41:59] Exiting with code 0

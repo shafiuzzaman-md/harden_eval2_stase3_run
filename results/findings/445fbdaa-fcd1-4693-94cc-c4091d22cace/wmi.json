@@ -1,0 +1,123 @@
+{
+  "operation": {
+    "name": "write_at_kbmi_pre_routing_hook",
+    "parameters": [
+      "int64 sep_pos",
+      "int8 shellcode_byte",
+      "int8 filler_byte"
+    ],
+    "parameters_meta": [
+      {
+        "role": "unknown"
+      },
+      {
+        "role": "attacker_state",
+        "writes_to": "g_message_buffer[sep_pos + 1]"
+      },
+      {
+        "role": "function_argument",
+        "source_function": "memset"
+      }
+    ],
+    "effects": [
+      {
+        "type": "write",
+        "id": "e_0db5d973",
+        "arguments": {
+          "destinations": [
+            "write_destination"
+          ],
+          "values": []
+        }
+      }
+    ],
+    "preconditions": [
+      "(set-logic QF_AUFBV )\n(declare-fun filler_byte () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun sep_pos () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun shellcode_byte () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (and \n             (and \n                  (bvult \n                         (concat \n                                 (select \n                                         sep_pos\n                                         (_ bv7 32)\n                                 )\n                                 (concat \n                                         (select \n                                                 sep_pos\n                                                 (_ bv6 32)\n                                         )\n                                         (concat \n                                                 (select \n                                                         sep_pos\n                                                         (_ bv5 32)\n                                                 )\n                                                 (concat \n                                                         (select \n                                                                 sep_pos\n                                                                 (_ bv4 32)\n                                                         )\n                                                         (concat \n                                                                 (select \n                                                                         sep_pos\n                                                                         (_ bv3 32)\n                                                                 )\n                                                                 (concat \n                                                                         (select \n                                                                                 sep_pos\n                                                                                 (_ bv2 32)\n                                                                         )\n                                                                         (concat \n                                                                                 (select \n                                                                                         sep_pos\n                                                                                         (_ bv1 32)\n                                                                                 )\n                                                                                 (select \n                                                                                         sep_pos\n                                                                                         (_ bv0 32)\n                                                                                 )\n                                                                         )\n                                                                 )\n                                                         )\n                                                 )\n                                         )\n                                 )\n                         )\n                         (_ bv1023 64)\n                  )\n                  (= \n                     (_ bv144 8)\n                     (select \n                             shellcode_byte\n                             (_ bv0 32)\n                     )\n                  )\n             )\n             (= \n                false\n                (= \n                   (_ bv0 8)\n                   (select \n                           filler_byte\n                           (_ bv0 32)\n                   )\n                )\n             )\n        )\n)\n(check-sat)\n(exit)\n"
+    ],
+    "preconditions_meta": [
+      {
+        "name": "test000001",
+        "is_bug_witness": true,
+        "format": "smt2",
+        "size_chars": 3901
+      }
+    ]
+  },
+  "trigger": {
+    "function": "kbmi_pre_routing_hook",
+    "file": "kbmi_net.c",
+    "args": [
+      {
+        "name": "sep_pos",
+        "type": "int64",
+        "value_le_hex": "0x3fe",
+        "size_bytes": 8,
+        "source": "klee_witness:test000001"
+      },
+      {
+        "name": "shellcode_byte",
+        "type": "int8",
+        "value_le_hex": "0x90",
+        "size_bytes": 1,
+        "source": "klee_witness:test000001"
+      },
+      {
+        "name": "filler_byte",
+        "type": "int8",
+        "value_le_hex": "0xff",
+        "size_bytes": 1,
+        "source": "klee_witness:test000001"
+      }
+    ]
+  },
+  "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-kbmi_pre_routing_hook-445fbdaa",
+  "metadata": {
+    "rule": "stase3/cpp/cwe-787-oob-buffer-index-write",
+    "bug_type": "CWE-787 (OOB_WRITE): Array index write where index is a length-like value (off-by-one / past-last-byte)",
+    "verdict_kind": "concrete_confirmed",
+    "crash_location": {
+      "file": "kbmi_net.c",
+      "line": 71,
+      "function": "kbmi_pre_routing_hook",
+      "source": ""
+    },
+    "memory_layout": [
+      {
+        "name": "write_destination",
+        "expr": "?",
+        "locations": [
+          {
+            "offset": 0,
+            "size": 8
+          }
+        ]
+      }
+    ],
+    "memory_relation": {
+      "segment": "write_destination",
+      "symbol": "kbmi_pre_routing_hook"
+    },
+    "concrete_oracle": {
+      "oracle": "asan-userspace",
+      "violation_type": "heap-buffer-overflow",
+      "exit_code": 1,
+      "asan_excerpt": "==716806==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x502000000030 at pc 0x626f05c1f8f9 bp 0x7ffd22470490 sp 0x7ffd22470480\nREAD of size 1 at 0x502000000030 thread T0\n    #0 0x626f05c1f8f8 in kbmi_pre_routing_hook /home/shafi/harden/eval3_demo/stase3/kbmi_net.c:71\n    #1 0x626f05c1fbb4 in main /home/shafi/harden/eval3_demo/stase3/kbmi_net.c:105\n    #2 0x756569a2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #3 0x756569a2a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #4 0x626f05c1f364 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/kbmi_net_line71/harness+0x2364) (BuildId: f5962f92159a3a86ef673b3923730b4bf1094345)\n\n0x502000000030 is located 16 bytes after 16-byte region [0x502000000010,0x502000000020)\nallocated by thread T0 here:\n    #0 0x75656a6fd9c7 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69\n    #1 0x626f05c1f7ce in kbmi_pre_routing_hook /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/harnesses/harness_kbmi_net_line71.c:105\n    #2 0x626f05c1fbb4 in main /home/shafi/harden/eval3_demo/stase3/kbmi_net.c:105\n    #3 0x756569a2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #4 0x756569a2a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #5 0x626f05c1f364 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/kbmi_net_line71/harness+0x2364) (BuildId: f5962f92159a3a86ef673b3923730b4bf1094345)\n\nSUMMARY: AddressSanitizer: heap-buffer-overflow /home/shafi/harden/eval3_demo/stase3/kbmi_net.c:71 in kbmi_pre_routing_hook\n",
+      "harness_source": "reproducer.c",
+      "harness_log": "reproducer.log"
+    },
+    "symex_oracle": {
+      "oracle": "klee",
+      "tests": 1,
+      "ptr_errors": 1,
+      "witness_test": "test000001",
+      "witness_validation": {
+        "validated": true,
+        "stage": "run",
+        "exit_code": 1,
+        "asan_violation_at": "kbmi_net.c:71",
+        "expected_at": "kbmi_net.c:71",
+        "match_frame": "any"
+      }
+    }
+  }
+}

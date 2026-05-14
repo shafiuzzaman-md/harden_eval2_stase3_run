@@ -1,0 +1,11 @@
+[2026-05-14 09:42:33] This is codeql query run -d out/eval2_linux/codeql_db -o out/eval2_linux/per_rule_bqrs/CVE_2025_68260_ConcurrentListCorruption.bqrs rules/generated/CVE_2025_68260_ConcurrentListCorruption.ql
+[2026-05-14 09:42:33] Log file was started late.
+[2026-05-14 09:42:33] Calling plumbing command: codeql resolve ram --dataset=/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/db-cpp --format=json
+[2026-05-14 09:42:33] [PROGRESS] resolve ram> Stringpool size measured as 2326938
+[2026-05-14 09:42:33] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx12910M",
+                        "--off-heap-ram=16066"
+                      ]
+[2026-05-14 09:42:33] Chaining via /tmp/codeql.OFjvOSBY to plumbing: execute queries -J-Xmx12910M --off-heap-ram=16066 --verbosity=progress --logdir=/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --dynamic-join-order-mode=none --output=/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/per_rule_bqrs/CVE_2025_68260_ConcurrentListCorruption.bqrs -- /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/db-cpp path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CVE_2025_68260_ConcurrentListCorruption.ql
+[2026-05-14 09:42:33] Exiting with code 70

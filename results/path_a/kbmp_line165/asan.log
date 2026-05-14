@@ -1,0 +1,7 @@
+kbmp.c:165:22: runtime error: division by zero
+    #0 0x62cb296883b6 in rotate /home/shafi/harden/eval3_demo/stase3/kbmp.c:165
+    #1 0x62cb2968865a in main /home/shafi/harden/eval3_demo/stase3/kbmp.c:186
+    #2 0x74ccdfe2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #3 0x74ccdfe2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #4 0x62cb29688264 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/kbmp_line165/harness+0x2264) (BuildId: fd2d7fb6467927abca83987f31b40b667154bdde)
+

@@ -1,0 +1,334 @@
+{
+  "memory_layout": [
+    {
+      "name": "size_t_index",
+      "expr": "size_t index",
+      "locations": [
+        {
+          "offset": 0,
+          "size": 8
+        }
+      ]
+    },
+    {
+      "name": "ret",
+      "expr": "ret",
+      "locations": [
+        {
+          "offset": 0,
+          "size": 8
+        }
+      ]
+    },
+    {
+      "name": "write_destination",
+      "expr": "?",
+      "locations": [
+        {
+          "offset": 0,
+          "size": 8
+        }
+      ]
+    },
+    {
+      "name": "msg_message_length",
+      "expr": "msg[message_length]",
+      "locations": [
+        {
+          "offset": 0,
+          "size": 8
+        }
+      ]
+    },
+    {
+      "name": "rotated_length",
+      "expr": "rotated[length]",
+      "locations": [
+        {
+          "offset": 0,
+          "size": 8
+        }
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "name": "write_at_rotate",
+      "parameters": [],
+      "parameters_meta": [],
+      "effects": [
+        {
+          "type": "write",
+          "id": "e_ccc5d875",
+          "arguments": {
+            "destinations": [
+              "size_t_index"
+            ],
+            "values": []
+          }
+        }
+      ],
+      "preconditions": [
+        "(set-logic QF_AUFBV )\n(declare-fun i () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (bvult \n               (concat \n                       (select \n                               i\n                               (_ bv7 32)\n                       )\n                       (concat \n                               (select \n                                       i\n                                       (_ bv6 32)\n                               )\n                               (concat \n                                       (select \n                                               i\n                                               (_ bv5 32)\n                                       )\n                                       (concat \n                                               (select \n                                                       i\n                                                       (_ bv4 32)\n                                               )\n                                               (concat \n                                                       (select \n                                                               i\n                                                               (_ bv3 32)\n                                                       )\n                                                       (concat \n                                                               (select \n                                                                       i\n                                                                       (_ bv2 32)\n                                                               )\n                                                               (concat \n                                                                       (select \n                                                                               i\n                                                                               (_ bv1 32)\n                                                                       )\n                                                                       (select \n                                                                               i\n                                                                               (_ bv0 32)\n                                                                       )\n                                                               )\n                                                       )\n                                               )\n                                       )\n                               )\n                       )\n               )\n               (_ bv4294967296 64)\n        )\n)\n(check-sat)\n(exit)\n"
+      ],
+      "preconditions_meta": [
+        {
+          "name": "test000001",
+          "is_bug_witness": false,
+          "format": "smt2",
+          "size_chars": 2711
+        }
+      ]
+    },
+    {
+      "name": "write_at_dev_read",
+      "parameters": [
+        "int64 len",
+        "int64 offset"
+      ],
+      "parameters_meta": [
+        {
+          "role": "function_argument",
+          "source_function": "dev_read",
+          "source_param_index": 2,
+          "source_param_name": "len",
+          "source_param_type": "size_t"
+        },
+        {
+          "role": "function_argument",
+          "source_function": "dev_read",
+          "source_param_index": 3,
+          "source_param_name": "offset",
+          "source_param_type": "loff_t *"
+        }
+      ],
+      "effects": [
+        {
+          "type": "write",
+          "id": "e_c8374af8",
+          "arguments": {
+            "destinations": [
+              "ret"
+            ],
+            "values": []
+          }
+        }
+      ],
+      "preconditions": [
+        "(set-logic QF_AUFBV )\n(declare-fun len () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun offset () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (let\n            (\n             (?B1\n                 (concat \n                         (select \n                                 offset\n                                 (_ bv7 32)\n                         )\n                         (concat \n                                 (select \n                                         offset\n                                         (_ bv6 32)\n                                 )\n                                 (concat \n                                         (select \n                                                 offset\n                                                 (_ bv5 32)\n                                         )\n                                         (concat \n                                                 (select \n                                                         offset\n                                                         (_ bv4 32)\n                                                 )\n                                                 (concat \n                                                         (select \n                                                                 offset\n                                                                 (_ bv3 32)\n                                                         )\n                                                         (concat \n                                                                 (select \n                                                                         offset\n                                                                         (_ bv2 32)\n                                                                 )\n                                                                 (concat \n                                                                         (select \n                                                                                 offset\n                                                                                 (_ bv1 32)\n                                                                         )\n                                                                         (select \n                                                                                 offset\n                                                                                 (_ bv0 32)\n                                                                         )\n                                                                 )\n                                                         )\n                                                 )\n                                         )\n                                 )\n                         )\n                 )\n             )\n             (?B2\n                 (concat \n                         (select \n                                 len\n                                 (_ bv7 32)\n                         )\n                         (concat \n                                 (select \n                                         len\n                                         (_ bv6 32)\n                                 )\n                                 (concat \n                                         (select \n                                                 len\n                                                 (_ bv5 32)\n                                         )\n                                         (concat \n                                                 (select \n                                                         len\n                                                         (_ bv4 32)\n                                                 )\n                                                 (concat \n                                                         (select \n                                                                 len\n                                                                 (_ bv3 32)\n                                                         )\n                                                         (concat \n                                                                 (select \n                                                                         len\n                                                                         (_ bv2 32)\n                                                                 )\n                                                                 (concat \n                                                                         (select \n                                                                                 len\n                                                                                 (_ bv1 32)\n                                                                         )\n                                                                         (select \n                                                                                 len\n                                                                                 (_ bv0 32)\n                                                                         )\n                                                                 )\n                                                         )\n                                                 )\n                                         )\n                                 )\n                         )\n                 )\n             )\n            )\n            (and \n                 (and \n                      (and \n                           (bvult \n                                  (_ bv0 64)\n                                  ?B2\n                           )\n                           (bvule \n                                  ?B2\n                                  (_ bv64 64)\n                           )\n                      )\n                      (bvslt \n                             (_ bv1024 64)\n                             ?B1\n                      )\n                 )\n                 (bvslt \n                        ?B1\n                        (_ bv1048576 64)\n                 )\n            )\n        )\n)\n(check-sat)\n(exit)\n"
+      ],
+      "preconditions_meta": [
+        {
+          "name": "test000001",
+          "is_bug_witness": true,
+          "format": "smt2",
+          "size_chars": 6277
+        }
+      ]
+    },
+    {
+      "name": "write_at_dr_w_dev_read",
+      "parameters": [
+        "int64 len",
+        "int64 off"
+      ],
+      "parameters_meta": [
+        {
+          "role": "function_argument",
+          "source_function": "dr_w_dev_read",
+          "source_param_index": 2,
+          "source_param_name": "len",
+          "source_param_type": "size_t"
+        },
+        {
+          "role": "unknown"
+        }
+      ],
+      "effects": [
+        {
+          "type": "write",
+          "id": "e_9e48d469",
+          "arguments": {
+            "destinations": [
+              "ret"
+            ],
+            "values": []
+          }
+        }
+      ],
+      "preconditions": [
+        "(set-logic QF_AUFBV )\n(declare-fun len () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun off () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (let\n            (\n             (?B1\n                 (concat \n                         (select \n                                 len\n                                 (_ bv7 32)\n                         )\n                         (concat \n                                 (select \n                                         len\n                                         (_ bv6 32)\n                                 )\n                                 (concat \n                                         (select \n                                                 len\n                                                 (_ bv5 32)\n                                         )\n                                         (concat \n                                                 (select \n                                                         len\n                                                         (_ bv4 32)\n                                                 )\n                                                 (concat \n                                                         (select \n                                                                 len\n                                                                 (_ bv3 32)\n                                                         )\n                                                         (concat \n                                                                 (select \n                                                                         len\n                                                                         (_ bv2 32)\n                                                                 )\n                                                                 (concat \n                                                                         (select \n                                                                                 len\n                                                                                 (_ bv1 32)\n                                                                         )\n                                                                         (select \n                                                                                 len\n                                                                                 (_ bv0 32)\n                                                                         )\n                                                                 )\n                                                         )\n                                                 )\n                                         )\n                                 )\n                         )\n                 )\n             )\n             (?B2\n                 (concat \n                         (select \n                                 off\n                                 (_ bv7 32)\n                         )\n                         (concat \n                                 (select \n                                         off\n                                         (_ bv6 32)\n                                 )\n                                 (concat \n                                         (select \n                                                 off\n                                                 (_ bv5 32)\n                                         )\n                                         (concat \n                                                 (select \n                                                         off\n                                                         (_ bv4 32)\n                                                 )\n                                                 (concat \n                                                         (select \n                                                                 off\n                                                                 (_ bv3 32)\n                                                         )\n                                                         (concat \n                                                                 (select \n                                                                         off\n                                                                         (_ bv2 32)\n                                                                 )\n                                                                 (concat \n                                                                         (select \n                                                                                 off\n                                                                                 (_ bv1 32)\n                                                                         )\n                                                                         (select \n                                                                                 off\n                                                                                 (_ bv0 32)\n                                                                         )\n                                                                 )\n                                                         )\n                                                 )\n                                         )\n                                 )\n                         )\n                 )\n             )\n            )\n            (and \n                 (and \n                      (and \n                           (bvult \n                                  (_ bv0 64)\n                                  ?B1\n                           )\n                           (bvule \n                                  ?B1\n                                  (_ bv256 64)\n                           )\n                      )\n                      (bvslt \n                             (_ bv100 64)\n                             ?B2\n                      )\n                 )\n                 (bvslt \n                        ?B2\n                        (_ bv65536 64)\n                 )\n            )\n        )\n)\n(check-sat)\n(exit)\n"
+      ],
+      "preconditions_meta": [
+        {
+          "name": "test000001",
+          "is_bug_witness": true,
+          "format": "smt2",
+          "size_chars": 6248
+        }
+      ]
+    },
+    {
+      "name": "write_at_kbmi_pre_routing_hook",
+      "parameters": [
+        "int64 sep_pos",
+        "int8 shellcode_byte",
+        "int8 filler_byte"
+      ],
+      "parameters_meta": [
+        {
+          "role": "unknown"
+        },
+        {
+          "role": "attacker_state",
+          "writes_to": "g_message_buffer[sep_pos + 1]"
+        },
+        {
+          "role": "function_argument",
+          "source_function": "memset"
+        }
+      ],
+      "effects": [
+        {
+          "type": "write",
+          "id": "e_0db5d973",
+          "arguments": {
+            "destinations": [
+              "write_destination"
+            ],
+            "values": []
+          }
+        }
+      ],
+      "preconditions": [
+        "(set-logic QF_AUFBV )\n(declare-fun filler_byte () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun sep_pos () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun shellcode_byte () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (and \n             (and \n                  (bvult \n                         (concat \n                                 (select \n                                         sep_pos\n                                         (_ bv7 32)\n                                 )\n                                 (concat \n                                         (select \n                                                 sep_pos\n                                                 (_ bv6 32)\n                                         )\n                                         (concat \n                                                 (select \n                                                         sep_pos\n                                                         (_ bv5 32)\n                                                 )\n                                                 (concat \n                                                         (select \n                                                                 sep_pos\n                                                                 (_ bv4 32)\n                                                         )\n                                                         (concat \n                                                                 (select \n                                                                         sep_pos\n                                                                         (_ bv3 32)\n                                                                 )\n                                                                 (concat \n                                                                         (select \n                                                                                 sep_pos\n                                                                                 (_ bv2 32)\n                                                                         )\n                                                                         (concat \n                                                                                 (select \n                                                                                         sep_pos\n                                                                                         (_ bv1 32)\n                                                                                 )\n                                                                                 (select \n                                                                                         sep_pos\n                                                                                         (_ bv0 32)\n                                                                                 )\n                                                                         )\n                                                                 )\n                                                         )\n                                                 )\n                                         )\n                                 )\n                         )\n                         (_ bv1023 64)\n                  )\n                  (= \n                     (_ bv144 8)\n                     (select \n                             shellcode_byte\n                             (_ bv0 32)\n                     )\n                  )\n             )\n             (= \n                false\n                (= \n                   (_ bv0 8)\n                   (select \n                           filler_byte\n                           (_ bv0 32)\n                   )\n                )\n             )\n        )\n)\n(check-sat)\n(exit)\n"
+      ],
+      "preconditions_meta": [
+        {
+          "name": "test000001",
+          "is_bug_witness": true,
+          "format": "smt2",
+          "size_chars": 3901
+        }
+      ]
+    },
+    {
+      "name": "write_at_deliver_usb_event",
+      "parameters": [
+        "int64 action",
+        "int64 dev_bits"
+      ],
+      "parameters_meta": [
+        {
+          "role": "function_argument",
+          "source_function": "usb_notify",
+          "source_param_index": 1,
+          "source_param_name": "action",
+          "source_param_type": "unsigned long"
+        },
+        {
+          "role": "unknown"
+        }
+      ],
+      "effects": [
+        {
+          "type": "write",
+          "id": "e_0ab79987",
+          "arguments": {
+            "destinations": [
+              "write_destination"
+            ],
+            "values": []
+          }
+        }
+      ],
+      "preconditions": [
+        "(set-logic QF_AUFBV )\n(declare-fun action () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun dev_bits () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (and \n             (bvult \n                    (concat \n                            (select \n                                    action\n                                    (_ bv7 32)\n                            )\n                            (concat \n                                    (select \n                                            action\n                                            (_ bv6 32)\n                                    )\n                                    (concat \n                                            (select \n                                                    action\n                                                    (_ bv5 32)\n                                            )\n                                            (concat \n                                                    (select \n                                                            action\n                                                            (_ bv4 32)\n                                                    )\n                                                    (concat \n                                                            (select \n                                                                    action\n                                                                    (_ bv3 32)\n                                                            )\n                                                            (concat \n                                                                    (select \n                                                                            action\n                                                                            (_ bv2 32)\n                                                                    )\n                                                                    (concat \n                                                                            (select \n                                                                                    action\n                                                                                    (_ bv1 32)\n                                                                            )\n                                                                            (select \n                                                                                    action\n                                                                                    (_ bv0 32)\n                                                                            )\n                                                                    )\n                                                            )\n                                                    )\n                                            )\n                                    )\n                            )\n                    )\n                    (_ bv4294967296 64)\n             )\n             (= \n                (_ bv0 64)\n                (concat \n                        (select \n                                dev_bits\n                                (_ bv7 32)\n                        )\n                        (concat \n                                (select \n                                        dev_bits\n                                        (_ bv6 32)\n                                )\n                                (concat \n                                        (select \n                                                dev_bits\n                                                (_ bv5 32)\n                                        )\n                                        (concat \n                                                (select \n                                                        dev_bits\n                                                        (_ bv4 32)\n                                                )\n                                                (concat \n                                                        (select \n                                                                dev_bits\n                                                                (_ bv3 32)\n                                                        )\n                                                        (concat \n                                                                (select \n                                                                        dev_bits\n                                                                        (_ bv2 32)\n                                                                )\n                                                                (concat \n                                                                        (select \n                                                                                dev_bits\n                                                                                (_ bv1 32)\n                                                                        )\n                                                                        (select \n                                                                                dev_bits\n                                                                                (_ bv0 32)\n                                                                        )\n                                                                )\n                                                        )\n                                                )\n                                        )\n                                )\n                        )\n                )\n             )\n        )\n)\n(check-sat)\n(exit)\n"
+      ],
+      "preconditions_meta": [
+        {
+          "name": "test000001",
+          "is_bug_witness": true,
+          "format": "smt2",
+          "size_chars": 5792
+        }
+      ]
+    },
+    {
+      "name": "write_at_line48",
+      "parameters": [],
+      "parameters_meta": [],
+      "effects": [
+        {
+          "type": "write",
+          "id": "e_7df1f720",
+          "arguments": {
+            "destinations": [
+              "msg_message_length"
+            ],
+            "values": []
+          }
+        }
+      ],
+      "preconditions": [],
+      "preconditions_meta": []
+    },
+    {
+      "name": "write_at_line171",
+      "parameters": [],
+      "parameters_meta": [],
+      "effects": [
+        {
+          "type": "write",
+          "id": "e_544f718d",
+          "arguments": {
+            "destinations": [
+              "rotated_length"
+            ],
+            "values": []
+          }
+        }
+      ],
+      "preconditions": [],
+      "preconditions_meta": []
+    },
+    {
+      "name": "write_at_route_one_packet",
+      "parameters": [
+        "int32 do_exit",
+        "int32 do_route"
+      ],
+      "parameters_meta": [
+        {
+          "role": "unknown"
+        },
+        {
+          "role": "unknown"
+        }
+      ],
+      "effects": [
+        {
+          "type": "write",
+          "id": "e_fdfc9a72",
+          "arguments": {
+            "destinations": [
+              "write_destination"
+            ],
+            "values": []
+          }
+        }
+      ],
+      "preconditions": [
+        "(set-logic QF_AUFBV )\n(declare-fun do_exit () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun do_route () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (and \n             (= \n                (_ bv1 32)\n                (concat \n                        (select \n                                do_exit\n                                (_ bv3 32)\n                        )\n                        (concat \n                                (select \n                                        do_exit\n                                        (_ bv2 32)\n                                )\n                                (concat \n                                        (select \n                                                do_exit\n                                                (_ bv1 32)\n                                        )\n                                        (select \n                                                do_exit\n                                                (_ bv0 32)\n                                        )\n                                )\n                        )\n                )\n             )\n             (= \n                (_ bv1 32)\n                (concat \n                        (select \n                                do_route\n                                (_ bv3 32)\n                        )\n                        (concat \n                                (select \n                                        do_route\n                                        (_ bv2 32)\n                                )\n                                (concat \n                                        (select \n                                                do_route\n                                                (_ bv1 32)\n                                        )\n                                        (select \n                                                do_route\n                                                (_ bv0 32)\n                                        )\n                                )\n                        )\n                )\n             )\n        )\n)\n(check-sat)\n(exit)\n"
+      ],
+      "preconditions_meta": [
+        {
+          "name": "test000001",
+          "is_bug_witness": true,
+          "format": "smt2",
+          "size_chars": 2132
+        }
+      ]
+    }
+  ]
+}

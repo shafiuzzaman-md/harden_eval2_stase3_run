@@ -1,0 +1,198 @@
+{
+  "archetype": "wma.json",
+  "instructions": [
+    {
+      "operation": "write_at_rotate",
+      "trigger": {
+        "function": "rotate",
+        "file": "kbmp.c"
+      },
+      "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-rotate-0ccab6ba",
+      "wmi_path": "findings/0ccab6ba-c957-4533-b123-f130047a6e97/wmi.json"
+    },
+    {
+      "operation": "write_at_dev_read",
+      "trigger": {
+        "function": "dev_read",
+        "file": "rev_chardev.c",
+        "args": [
+          {
+            "name": "len",
+            "type": "int64",
+            "value_le_hex": "0x40",
+            "size_bytes": 8,
+            "source": "klee_witness:test000001"
+          },
+          {
+            "name": "offset",
+            "type": "int64",
+            "value_le_hex": "0x401",
+            "size_bytes": 8,
+            "source": "klee_witness:test000001"
+          }
+        ]
+      },
+      "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-dev_read-28642186",
+      "wmi_path": "findings/28642186-b32b-486d-9d7c-43b19f010ad6/wmi.json"
+    },
+    {
+      "operation": "write_at_dr_w_dev_read",
+      "trigger": {
+        "function": "dr_w_dev_read",
+        "file": "evt_notifier.c",
+        "args": [
+          {
+            "name": "len",
+            "type": "int64",
+            "value_le_hex": "0xff",
+            "size_bytes": 8,
+            "source": "klee_witness:test000001"
+          },
+          {
+            "name": "off",
+            "type": "int64",
+            "value_le_hex": "0x65",
+            "size_bytes": 8,
+            "source": "klee_witness:test000001"
+          }
+        ]
+      },
+      "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-dr_w_dev_read-3f365890",
+      "wmi_path": "findings/3f365890-0068-45c9-8982-2ae77404f374/wmi.json"
+    },
+    {
+      "operation": "write_at_kbmi_pre_routing_hook",
+      "trigger": {
+        "function": "kbmi_pre_routing_hook",
+        "file": "kbmi_net.c",
+        "args": [
+          {
+            "name": "sep_pos",
+            "type": "int64",
+            "value_le_hex": "0x3fe",
+            "size_bytes": 8,
+            "source": "klee_witness:test000001"
+          },
+          {
+            "name": "shellcode_byte",
+            "type": "int8",
+            "value_le_hex": "0x90",
+            "size_bytes": 1,
+            "source": "klee_witness:test000001"
+          },
+          {
+            "name": "filler_byte",
+            "type": "int8",
+            "value_le_hex": "0xff",
+            "size_bytes": 1,
+            "source": "klee_witness:test000001"
+          }
+        ]
+      },
+      "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-kbmi_pre_routing_hook-445fbdaa",
+      "wmi_path": "findings/445fbdaa-fcd1-4693-94cc-c4091d22cace/wmi.json"
+    },
+    {
+      "operation": "write_at_deliver_usb_event",
+      "trigger": {
+        "function": "deliver_usb_event",
+        "file": "usb_event_logger.c",
+        "args": [
+          {
+            "name": "action",
+            "type": "int64",
+            "value_le_hex": "0xffffffff",
+            "size_bytes": 8,
+            "source": "klee_witness:test000001"
+          },
+          {
+            "name": "dev_bits",
+            "type": "int64",
+            "value_le_hex": "0x0",
+            "size_bytes": 8,
+            "source": "klee_witness:test000001"
+          }
+        ]
+      },
+      "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-deliver_usb_event-87a68b1e",
+      "wmi_path": "findings/87a68b1e-f8d1-4909-ae3f-d99cd78ade50/wmi.json"
+    },
+    {
+      "operation": "write_at_line48",
+      "trigger": {
+        "function": "?",
+        "file": "kbmp.c"
+      },
+      "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-line48-99b2463d",
+      "wmi_path": "findings/99b2463d-6b6d-422b-818d-0c3bea30e0ac/wmi.json"
+    },
+    {
+      "operation": "write_at_line171",
+      "trigger": {
+        "function": "?",
+        "file": "kbmp.c"
+      },
+      "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-line171-de39faaf",
+      "wmi_path": "findings/de39faaf-0985-4b96-ad60-4d2b471b382b/wmi.json"
+    },
+    {
+      "operation": "write_at_route_one_packet",
+      "trigger": {
+        "function": "route_one_packet",
+        "file": "vnet_pktfilter.c",
+        "args": [
+          {
+            "name": "do_exit",
+            "type": "int32",
+            "value_le_hex": "0x1",
+            "size_bytes": 4,
+            "source": "klee_witness:test000001"
+          },
+          {
+            "name": "do_route",
+            "type": "int32",
+            "value_le_hex": "0x1",
+            "size_bytes": 4,
+            "source": "klee_witness:test000001"
+          }
+        ]
+      },
+      "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-route_one_packet-e494e29d",
+      "wmi_path": "findings/e494e29d-a8c8-403a-8b85-7d50cc22bc1d/wmi.json"
+    }
+  ],
+  "memory_relations": [
+    {
+      "segment": "size_t_index",
+      "symbol": "rotate"
+    },
+    {
+      "segment": "ret",
+      "symbol": "dev_read"
+    },
+    {
+      "segment": "ret",
+      "symbol": "dr_w_dev_read"
+    },
+    {
+      "segment": "write_destination",
+      "symbol": "kbmi_pre_routing_hook"
+    },
+    {
+      "segment": "write_destination",
+      "symbol": "deliver_usb_event"
+    },
+    {
+      "segment": "msg_message_length",
+      "symbol": "?"
+    },
+    {
+      "segment": "rotated_length",
+      "symbol": "?"
+    },
+    {
+      "segment": "write_destination",
+      "symbol": "route_one_packet"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+Error: memory error: use after free
+File: vnet_pktfilter.c
+Line: 320
+assembly.ll line: 144
+State: 1
+Stack: 
+	#000000144 in route_one_packet() at vnet_pktfilter.c:320
+	#100000068 in main(1, 136009163472896) at harness.c:178
+Info: 
+	address: 135200099008512
+	next: object at 134763086086144 of size 4
+		MO92[4] allocated at main():  %7 = alloca i32, align 4

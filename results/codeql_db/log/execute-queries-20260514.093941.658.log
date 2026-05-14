@@ -1,0 +1,60 @@
+[2026-05-14 09:39:41] This is codeql execute queries -J-Xmx12910M --off-heap-ram=16066 --verbosity=progress --logdir=/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --dynamic-join-order-mode=none -- /home/shafi/harden/eval3_demo/stase3/out/eval2_linux/codeql_db/db-cpp path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CFH_StructFieldFunctionPointerCall.ql
+[2026-05-14 09:39:41] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --format=json -- path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CFH_StructFieldFunctionPointerCall.ql
+[2026-05-14 09:39:41] [PROGRESS] resolve queries> Recording pack reference breach/generated-queries at /home/shafi/harden/eval3_demo/stase3/rules/generated.
+[2026-05-14 09:39:41] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/shafi/harden/eval3_demo/stase3/rules/generated/CFH_StructFieldFunctionPointerCall.ql"
+                      ]
+[2026-05-14 09:39:41] Refusing fancy output: $CODEQL_ISATTY terminal indication is missing
+[2026-05-14 09:39:41] Creating executor with 1 threads.
+[2026-05-14 09:39:41] Calling plumbing command: codeql resolve extensions --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --include-extension-row-locations path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CFH_StructFieldFunctionPointerCall.ql
+[2026-05-14 09:39:41] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --allow-library-packs --format startingpacks -- path:/home/shafi/harden/eval3_demo/stase3/rules/generated/CFH_StructFieldFunctionPointerCall.ql
+[2026-05-14 09:39:41] [PROGRESS] resolve queries> Recording pack reference breach/generated-queries at /home/shafi/harden/eval3_demo/stase3/rules/generated.
+[2026-05-14 09:39:41] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/shafi/harden/eval3_demo/stase3/rules/generated"
+                      ]
+[2026-05-14 09:39:41] Calling plumbing command: codeql resolve extensions-by-pack --qlconfig-file=/home/shafi/harden/eval3_demo/stase3/qlconfig.yml --include-extension-row-locations -- /home/shafi/harden/eval3_demo/stase3/rules/generated
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] breach/generated-queries: not 0.1.0 {root: breach/generated-queries@0.1.0}
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [DERIVATION] breach/generated-queries: 0.1.0 {breach/generated-queries: not 0.1.0 {root: breach/generated-queries@0.1.0}}
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] breach/generated-queries: * [*], codeql/cpp-all: not >=1.0.0 <1.1.0-0 {dependency: breach/generated-queries@* [*] requires codeql/cpp-all@~1.0.0}
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [DECISION 1] breach/generated-queries: 0.1.0
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/cpp-all: >=1.0.0 <1.1.0-0 {breach/generated-queries: * [*], codeql/cpp-all: not >=1.0.0 <1.1.0-0 {dependency: breach/generated-queries@* [*] requires codeql/cpp-all@~1.0.0}}
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/cpp-all: * [*] {pack not found: codeql/cpp-all}
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [CONFLICT] codeql/cpp-all: * [*] {pack not found: codeql/cpp-all}
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack>   [CONSTRAINT] breach/generated-queries: 0.1.0
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack>   [CONSTRAINT] codeql/cpp-all: >=1.0.0 <1.1.0-0
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack>   [SATISFIER] derivation: codeql/cpp-all: >=1.0.0 <1.1.0-0
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack>   [ALMOST_SATISFIER] <none>
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] breach/generated-queries: * [*] {conflict}
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack> [FAILURE]
+[2026-05-14 09:39:41] [SPAMMY] resolve extensions-by-pack>   Because 'breach/generated-queries' depends on 'codeql/cpp-all@~1.0.0', but pack 'codeql/cpp-all' was not found, version solving failed.
+[2026-05-14 09:39:41] [ERROR] resolve extensions-by-pack> ERROR: Pack 'codeql/cpp-all@1.0.0' was not found in the pack download cache. Run 'codeql pack install' to download the dependencies. (/home/shafi/harden/eval3_demo/stase3/rules/generated/qlpack.yml:1,1-1)
+[2026-05-14 09:39:41] [ERROR] resolve extensions-by-pack> ERROR: No valid pack solution found:
+                              Because 'breach/generated-queries' depends on 'codeql/cpp-all@~1.0.0', but pack 'codeql/cpp-all' was not found, version solving failed.
+                               (/home/shafi/harden/eval3_demo/stase3/rules/generated/qlpack.yml:1,1-1)
+[2026-05-14 09:39:41] Sequence stamp origin is -5914097889051260945
+[2026-05-14 09:39:41] Pausing evaluation to close the cache at sequence stamp o+0
+[2026-05-14 09:39:41] The disk cache is freshly trimmed; leave it be.
+[2026-05-14 09:39:41] Unpausing evaluation
+[2026-05-14 09:39:41] This NaiveBuddyAllocator requested 0 eviction rounds.
+[2026-05-14 09:39:41] Exception caught at top level: A 'codeql resolve extensions-by-pack' operation failed with error code 2
+                      com.semmle.cli2.picocli.PlumbingRunner.call(PlumbingRunner.java:75)
+                      com.semmle.cli2.picocli.SubcommandCommon.callPlumbingInProcess(SubcommandCommon.java:170)
+                      com.semmle.cli2.resolve.ResolveExtensionsCommand.executeJSON(ResolveExtensionsCommand.java:59)
+                      com.semmle.cli2.resolve.ResolveExtensionsCommand.executeJSON(ResolveExtensionsCommand.java:18)
+                      com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSONWithExistingMessages(SimpleJsonSubcommand.java:121)
+                      com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:444)
+                      com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSON(SimpleJsonSubcommand.java:110)
+                      com.semmle.cli2.picocli.PlumbingRunner.call(PlumbingRunner.java:61)
+                      com.semmle.cli2.picocli.SubcommandCommon.callPlumbingInProcess(SubcommandCommon.java:170)
+                      com.semmle.cli2.execute.ExecuteQueriesCommand.resolveExtensions(ExecuteQueriesCommand.java:856)
+                      com.semmle.cli2.execute.ExecuteQueriesCommand.executeSubcommand(ExecuteQueriesCommand.java:471)
+                      com.semmle.cli2.picocli.SubcommandCommon.lambda$executeSubcommandWithMessages$5(SubcommandCommon.java:892)
+                      com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:444)
+                      com.semmle.cli2.picocli.SubcommandCommon.executeSubcommandWithMessages(SubcommandCommon.java:890)
+                      com.semmle.cli2.picocli.SubcommandCommon.toplevelMain(SubcommandCommon.java:777)
+                      com.semmle.cli2.picocli.SubcommandCommon.call(SubcommandCommon.java:757)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:238)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:259)
+                      com.semmle.cli2.CodeQL.main(CodeQL.java:115)

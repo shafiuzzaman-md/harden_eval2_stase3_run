@@ -1,0 +1,3 @@
+"file:///home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/vnet_pktfilter/vnet_pktfilter.c:127:17:127:21","CWE-362: Field '(unknown field)' read outside lock then re-read inside critical section — TOCTOU race (KCSAN oracle)."
+"file:///home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/vnet_pktfilter/vnet_pktfilter.c:127:17:127:21","CWE-362: Field '(unknown field)' read outside lock then re-read inside critical section — TOCTOU race (KCSAN oracle)."
+"file:///home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/vnet_pktfilter/vnet_pktfilter.c:127:17:127:21","CWE-362: Field 'saddr' read outside lock then re-read inside critical section — TOCTOU race (KCSAN oracle)."

@@ -1,0 +1,9 @@
+array len[8] : w32 -> w8 = symbolic
+array off[8] : w32 -> w8 = symbolic
+(query [(Ult 0
+              N0:(ReadLSB w64 0 len))
+         (Ule N0 256)
+         (Slt 100
+              N1:(ReadLSB w64 0 off))
+         (Slt N1 65536)]
+        false)

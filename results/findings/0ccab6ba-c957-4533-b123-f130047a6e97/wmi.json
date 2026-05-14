@@ -1,0 +1,80 @@
+{
+  "operation": {
+    "name": "write_at_rotate",
+    "parameters": [],
+    "parameters_meta": [],
+    "effects": [
+      {
+        "type": "write",
+        "id": "e_ccc5d875",
+        "arguments": {
+          "destinations": [
+            "size_t_index"
+          ],
+          "values": []
+        }
+      }
+    ],
+    "preconditions": [
+      "(set-logic QF_AUFBV )\n(declare-fun i () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (bvult \n               (concat \n                       (select \n                               i\n                               (_ bv7 32)\n                       )\n                       (concat \n                               (select \n                                       i\n                                       (_ bv6 32)\n                               )\n                               (concat \n                                       (select \n                                               i\n                                               (_ bv5 32)\n                                       )\n                                       (concat \n                                               (select \n                                                       i\n                                                       (_ bv4 32)\n                                               )\n                                               (concat \n                                                       (select \n                                                               i\n                                                               (_ bv3 32)\n                                                       )\n                                                       (concat \n                                                               (select \n                                                                       i\n                                                                       (_ bv2 32)\n                                                               )\n                                                               (concat \n                                                                       (select \n                                                                               i\n                                                                               (_ bv1 32)\n                                                                       )\n                                                                       (select \n                                                                               i\n                                                                               (_ bv0 32)\n                                                                       )\n                                                               )\n                                                       )\n                                               )\n                                       )\n                               )\n                       )\n               )\n               (_ bv4294967296 64)\n        )\n)\n(check-sat)\n(exit)\n"
+    ],
+    "preconditions_meta": [
+      {
+        "name": "test000001",
+        "is_bug_witness": false,
+        "format": "smt2",
+        "size_chars": 2711
+      }
+    ]
+  },
+  "trigger": {
+    "function": "rotate",
+    "file": "kbmp.c"
+  },
+  "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-rotate-0ccab6ba",
+  "metadata": {
+    "rule": "stase3/cpp/cwe-787-oob-buffer-index-write",
+    "bug_type": "CWE-787 (OOB_WRITE): Array index write where index is a length-like value (off-by-one / past-last-byte)",
+    "verdict_kind": "symex_explored",
+    "crash_location": {
+      "file": "kbmp.c",
+      "line": 165,
+      "function": "rotate",
+      "source": "size_t index = i % length;"
+    },
+    "memory_layout": [
+      {
+        "name": "size_t_index",
+        "expr": "size_t index",
+        "locations": [
+          {
+            "offset": 0,
+            "size": 8
+          }
+        ]
+      }
+    ],
+    "memory_relation": {
+      "segment": "size_t_index",
+      "symbol": "rotate"
+    },
+    "concrete_oracle": {
+      "oracle": "asan-userspace",
+      "violation_type": "ubsan-runtime-error",
+      "exit_code": 1,
+      "asan_excerpt": "kbmp.c:165:22: runtime error: division by zero\n    #0 0x62cb296883b6 in rotate /home/shafi/harden/eval3_demo/stase3/kbmp.c:165\n    #1 0x62cb2968865a in main /home/shafi/harden/eval3_demo/stase3/kbmp.c:186\n    #2 0x74ccdfe2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #3 0x74ccdfe2a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #4 0x62cb29688264 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/kbmp_line165/harness+0x2264) (BuildId: fd2d7fb6467927abca83987f31b40b667154bdde)\n\n",
+      "harness_source": "reproducer.c",
+      "harness_log": "reproducer.log"
+    },
+    "symex_oracle": {
+      "oracle": "klee",
+      "tests": 1,
+      "ptr_errors": 0,
+      "witness_test": null,
+      "witness_validation": {
+        "validated": false,
+        "stage": "skipped"
+      }
+    }
+  }
+}

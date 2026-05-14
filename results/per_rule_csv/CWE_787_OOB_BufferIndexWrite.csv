@@ -1,0 +1,2 @@
+"file:///home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmp/kbmp.c:171:5:171:26","CWE-787 (OOB_WRITE): Array index write where the index is a length-like value (off-by-one / past-last-byte primitive)."
+"file:///home/shafi/harden/eval3_demo/stase3/out/eval2_linux/src/drivers/kbmp/kbmp.c:48:5:48:30","CWE-787 (OOB_WRITE): Array index write where the index is a length-like value (off-by-one / past-last-byte primitive)."

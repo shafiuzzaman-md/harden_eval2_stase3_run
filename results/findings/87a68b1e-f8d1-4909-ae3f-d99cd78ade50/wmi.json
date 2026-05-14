@@ -1,0 +1,114 @@
+{
+  "operation": {
+    "name": "write_at_deliver_usb_event",
+    "parameters": [
+      "int64 action",
+      "int64 dev_bits"
+    ],
+    "parameters_meta": [
+      {
+        "role": "function_argument",
+        "source_function": "usb_notify",
+        "source_param_index": 1,
+        "source_param_name": "action",
+        "source_param_type": "unsigned long"
+      },
+      {
+        "role": "unknown"
+      }
+    ],
+    "effects": [
+      {
+        "type": "write",
+        "id": "e_0ab79987",
+        "arguments": {
+          "destinations": [
+            "write_destination"
+          ],
+          "values": []
+        }
+      }
+    ],
+    "preconditions": [
+      "(set-logic QF_AUFBV )\n(declare-fun action () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(declare-fun dev_bits () (Array (_ BitVec 32) (_ BitVec 8) ) )\n(assert\n        (and \n             (bvult \n                    (concat \n                            (select \n                                    action\n                                    (_ bv7 32)\n                            )\n                            (concat \n                                    (select \n                                            action\n                                            (_ bv6 32)\n                                    )\n                                    (concat \n                                            (select \n                                                    action\n                                                    (_ bv5 32)\n                                            )\n                                            (concat \n                                                    (select \n                                                            action\n                                                            (_ bv4 32)\n                                                    )\n                                                    (concat \n                                                            (select \n                                                                    action\n                                                                    (_ bv3 32)\n                                                            )\n                                                            (concat \n                                                                    (select \n                                                                            action\n                                                                            (_ bv2 32)\n                                                                    )\n                                                                    (concat \n                                                                            (select \n                                                                                    action\n                                                                                    (_ bv1 32)\n                                                                            )\n                                                                            (select \n                                                                                    action\n                                                                                    (_ bv0 32)\n                                                                            )\n                                                                    )\n                                                            )\n                                                    )\n                                            )\n                                    )\n                            )\n                    )\n                    (_ bv4294967296 64)\n             )\n             (= \n                (_ bv0 64)\n                (concat \n                        (select \n                                dev_bits\n                                (_ bv7 32)\n                        )\n                        (concat \n                                (select \n                                        dev_bits\n                                        (_ bv6 32)\n                                )\n                                (concat \n                                        (select \n                                                dev_bits\n                                                (_ bv5 32)\n                                        )\n                                        (concat \n                                                (select \n                                                        dev_bits\n                                                        (_ bv4 32)\n                                                )\n                                                (concat \n                                                        (select \n                                                                dev_bits\n                                                                (_ bv3 32)\n                                                        )\n                                                        (concat \n                                                                (select \n                                                                        dev_bits\n                                                                        (_ bv2 32)\n                                                                )\n                                                                (concat \n                                                                        (select \n                                                                                dev_bits\n                                                                                (_ bv1 32)\n                                                                        )\n                                                                        (select \n                                                                                dev_bits\n                                                                                (_ bv0 32)\n                                                                        )\n                                                                )\n                                                        )\n                                                )\n                                        )\n                                )\n                        )\n                )\n             )\n        )\n)\n(check-sat)\n(exit)\n"
+    ],
+    "preconditions_meta": [
+      {
+        "name": "test000001",
+        "is_bug_witness": true,
+        "format": "smt2",
+        "size_chars": 5792
+      }
+    ]
+  },
+  "trigger": {
+    "function": "deliver_usb_event",
+    "file": "usb_event_logger.c",
+    "args": [
+      {
+        "name": "action",
+        "type": "int64",
+        "value_le_hex": "0xffffffff",
+        "size_bytes": 8,
+        "source": "klee_witness:test000001"
+      },
+      {
+        "name": "dev_bits",
+        "type": "int64",
+        "value_le_hex": "0x0",
+        "size_bytes": 8,
+        "source": "klee_witness:test000001"
+      }
+    ]
+  },
+  "name": "CWE-787_(OOB_WRITE):_Array_index_write_where_index_is_a_length-like_value_(off-by-one_/_past-last-byte)-deliver_usb_event-87a68b1e",
+  "metadata": {
+    "rule": "stase3/cpp/cwe-787-oob-buffer-index-write",
+    "bug_type": "CWE-787 (OOB_WRITE): Array index write where index is a length-like value (off-by-one / past-last-byte)",
+    "verdict_kind": "concrete_confirmed",
+    "crash_location": {
+      "file": "usb_event_logger.c",
+      "line": 118,
+      "function": "deliver_usb_event",
+      "source": "printk(KERN_INFO \"USB notifier unregistered\\n\");"
+    },
+    "memory_layout": [
+      {
+        "name": "write_destination",
+        "expr": "?",
+        "locations": [
+          {
+            "offset": 0,
+            "size": 8
+          }
+        ]
+      }
+    ],
+    "memory_relation": {
+      "segment": "write_destination",
+      "symbol": "deliver_usb_event"
+    },
+    "concrete_oracle": {
+      "oracle": "asan-userspace",
+      "violation_type": "heap-use-after-free",
+      "exit_code": 1,
+      "asan_excerpt": "==716869==ERROR: AddressSanitizer: heap-use-after-free on address 0x503000000040 at pc 0x59d6bdeb5344 bp 0x7ffe08fbd750 sp 0x7ffe08fbd740\nREAD of size 8 at 0x503000000040 thread T0\n    #0 0x59d6bdeb5343 in deliver_usb_event /home/shafi/harden/eval3_demo/stase3/usb_event_logger.c:118\n    #1 0x59d6bdeb5535 in main /home/shafi/harden/eval3_demo/stase3/usb_event_logger.c:161\n    #2 0x7c165862a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #3 0x7c165862a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #4 0x59d6bdeb51c4 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/usb_event_logger_line118/harness+0x11c4) (BuildId: b10ccff8553d1959e4c7d7663606e9de75d7ee36)\n\n0x503000000040 is located 0 bytes inside of 24-byte region [0x503000000040,0x503000000058)\nfreed by thread T0 here:\n    #0 0x7c16592fc4d8 in free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52\n    #1 0x59d6bdeb551d in main /home/shafi/harden/eval3_demo/stase3/usb_event_logger.c:157\n    #2 0x7c165862a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #3 0x7c165862a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #4 0x59d6bdeb51c4 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/usb_event_logger_line118/harness+0x11c4) (BuildId: b10ccff8553d1959e4c7d7663606e9de75d7ee36)\n\npreviously allocated by thread T0 here:\n    #0 0x7c16592fd9c7 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69\n    #1 0x59d6bdeb5392 in main /home/shafi/harden/eval3_demo/stase3/usb_event_logger.c:145\n    #2 0x7c165862a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58\n    #3 0x7c165862a28a in __libc_start_main_impl ../csu/libc-start.c:360\n    #4 0x59d6bdeb51c4 in _start (/home/shafi/harden/eval3_demo/stase3/out/eval2_linux/path_a/usb_event_logger_line118/harness+0x11c4) (BuildId: b10ccff8553d1959e4c7d7663606e9de75d7ee36)\n\nSUMMARY: AddressSanitizer: heap-use-after-free /home/shafi/hard",
+      "harness_source": "reproducer.c",
+      "harness_log": "reproducer.log"
+    },
+    "symex_oracle": {
+      "oracle": "klee",
+      "tests": 1,
+      "ptr_errors": 1,
+      "witness_test": "test000001",
+      "witness_validation": {
+        "validated": true,
+        "stage": "run",
+        "exit_code": 1,
+        "asan_violation_at": "usb_event_logger.c:118",
+        "expected_at": "usb_event_logger.c:118",
+        "match_frame": "any"
+      }
+    }
+  }
+}
