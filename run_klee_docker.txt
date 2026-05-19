@@ -1,0 +1,115 @@
+=============================================================
+Run a harness through KLEE inside the stase3 Docker image
+=============================================================
+
+Image : stase3:1.0.0   (ships KLEE 3.1 / LLVM 13)
+Run all commands from the repo root (the directory containing results/).
+
+Example harness below: results/harnesses/harness_evt_notifier_line162.c
+To use another harness, replace  evt_notifier_line162  everywhere with one of:
+  kbmi_net_line71   kbmp_line165   rev_chardev_line193
+  usb_event_logger_line118   vnet_pktfilter_line320
+
+
+-------------------------------------------------------------
+STEP 1 - open a shell inside the container (run this on the host)
+-------------------------------------------------------------
+docker run --rm -it -v "$PWD":/work -w /work --user "$(id -u):$(id -g)" -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -e KLEE_RUNTIME_LIBRARY_PATH=/opt/klee/runtime/lib --entrypoint bash stase3:1.0.0
+
+(--user runs the container as your host user so the files written to
+klee_run/ are owned by you, not root. The two read-only /etc mounts let
+that user/group ID resolve to a name inside the container, avoiding the
+"groups: cannot find name..." warning and the "I have no name!" prompt.)
+
+
+-------------------------------------------------------------
+STEP 2 - inside the container, compile the harness to LLVM bitcode
+-------------------------------------------------------------
+mkdir -p klee_run
+
+clang -emit-llvm -c -g -O0 -w -I results/src/include -I results/src -D__KLEE__ -I klee_include results/harnesses/harness_evt_notifier_line162.c -o klee_run/harness_evt_notifier_line162.bc
+
+
+-------------------------------------------------------------
+STEP 3 - inside the container, run KLEE on the bitcode
+-------------------------------------------------------------
+klee --solver-backend=z3 --output-dir=klee_run/out_evt_notifier_line162 --max-time=30s --only-output-states-covering-new --write-smt2s --smtlib-human-readable klee_run/harness_evt_notifier_line162.bc
+
+
+-------------------------------------------------------------
+EXPECTED RESULT  (for the evt_notifier_line162 example)
+-------------------------------------------------------------
+KLEE prints:
+  KLEE: ERROR: ... memory error: out of bound pointer
+  KLEE: done: generated tests = 1
+
+Output dir: klee_run/out_evt_notifier_line162/
+  test000001.ktest     concrete inputs
+  test000001.smt2      path constraints
+  test000001.ptr.err   the out-of-bounds witness (evt_notifier.c:162)
+
+The witness file name and error kind depend on the harness. All six
+generate exactly 1 test with 1 witness file:
+  evt_notifier_line162      test000001.ptr.err   out-of-bounds read
+  kbmi_net_line71           test000001.ptr.err   out-of-bounds pointer
+  kbmp_line165              test000001.div.err   divide by zero
+  rev_chardev_line193       test000001.ptr.err   out-of-bounds pointer
+  usb_event_logger_line118  test000001.ptr.err   use after free
+  vnet_pktfilter_line320    test000001.ptr.err   use after free
+
+
+-------------------------------------------------------------
+INTERPRETING THE RESULTS
+-------------------------------------------------------------
+KLEE flags the bug on the "KLEE: ERROR:" line and writes a witness file
+to the output dir. Read it with:
+
+  cat klee_run/out_evt_notifier_line162/test000001.ptr.err
+
+  Error:  the crash type - "out of bound pointer" = a read/write outside
+          any valid buffer ("divide by zero" / "use after free" for the
+          other harnesses).
+  Stack:  read it bottom-up. The top frame inside the harness is the real
+          bug site; the library frame above it is only where the bad
+          access executes:
+            main()           evt_notifier.c:205
+            dr_w_dev_read()  evt_notifier.c:162   <-- THE BUG
+            memcpy()         memcpy.c:17          KLEE's modeled memcpy,
+                                                  not the cause
+  Info:   the faulting address vs. the valid range it escaped, and the
+          nearest real object ("next: object ... allocated at ...").
+
+The crash often surfaces inside memcpy because the bug builds an
+out-of-bounds pointer - holding one is not the crash, dereferencing it
+is. copy_to_user expands to memcpy, which reads through the bad pointer.
+The real bug is always one stack frame down, in the harness code.
+
+test000001.ktest holds the concrete crashing input. View it with:
+
+  ktest-tool klee_run/out_evt_notifier_line162/test000001.ktest
+
+
+-------------------------------------------------------------
+RUNNING A DIFFERENT HARNESS
+-------------------------------------------------------------
+STEP 1 is unchanged. In STEP 2 and STEP 3, replace evt_notifier_line162
+in all three places (the .c source, the .bc file, and --output-dir) with
+one of the names listed near the top of this file. Example, kbmp_line165:
+
+  clang -emit-llvm -c -g -O0 -w -I results/src/include -I results/src -D__KLEE__ -I klee_include results/harnesses/harness_kbmp_line165.c -o klee_run/harness_kbmp_line165.bc
+
+  klee --solver-backend=z3 --output-dir=klee_run/out_kbmp_line165 --max-time=30s --only-output-states-covering-new --write-smt2s --smtlib-human-readable klee_run/harness_kbmp_line165.bc
+
+
+-------------------------------------------------------------
+NOTES
+-------------------------------------------------------------
+- Use the image's `clang` (LLVM 13), NOT clang-14. The image's KLEE is
+  built on LLVM 13; LLVM-14 bitcode makes KLEE abort while parsing it.
+- KLEE_RUNTIME_LIBRARY_PATH must point at /opt/klee/runtime/lib (set by
+  the -e flag in STEP 1), or KLEE cannot find its runtime library.
+- klee_include/ holds a vendored copy of klee/klee.h. The image ships
+  the `klee` binary but not that header, which the harness needs under
+  -D__KLEE__.
+- --output-dir must not already exist. To re-run, delete it first:
+      rm -rf klee_run/out_evt_notifier_line162

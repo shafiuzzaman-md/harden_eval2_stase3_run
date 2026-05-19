@@ -1,0 +1,12 @@
+# Run from the repo root
+docker run --rm -it -v "$PWD":/work -w /work --user "$(id -u):$(id -g)" -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro -e KLEE_RUNTIME_LIBRARY_PATH=/opt/klee/runtime/lib --entrypoint bash stase3:1.0.0
+
+# Run the rest inside the container
+mkdir -p klee_run
+clang -emit-llvm -c -g -O0 -w -I results/src/include -I results/src -D__KLEE__ -I klee_include results/harnesses/harness_evt_notifier_line162.c -o klee_run/harness_evt_notifier_line162.bc
+klee --solver-backend=z3 --output-dir=klee_run/out_evt_notifier_line162 --max-time=30s --only-output-states-covering-new --write-smt2s --smtlib-human-readable klee_run/harness_evt_notifier_line162.bc
+
+# Output directory: klee_run/out_evt_notifier_line162/ 
+test000001.ptr.err  crash witness
+test000001.ktest    the concrete input that triggers the crash
+test000001.smt2     the path constraints

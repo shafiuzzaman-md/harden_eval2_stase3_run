@@ -1,3 +1,6 @@
 # Non-portable ELF binaries built against this machine's libc + ASan runtime.
 # Regenerate with scripts/run_path_a_eval2.sh.
 results/path_a/*/harness
+
+# Scratch dir for ad-hoc single-harness KLEE runs (see README).
+klee_run/
